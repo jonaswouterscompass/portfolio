@@ -1,0 +1,15 @@
+@import '../sass/colors.scss';
+
+.content{
+    background: url('../assets/background.png') center/cover no-repeat; 
+    height: calc(100vh - 30px);
+    overflow: hidden;
+}
+
+.footer {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: color(dark);
+    color: color(light);
+}

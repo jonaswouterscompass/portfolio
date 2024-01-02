@@ -1,0 +1,8 @@
+<div class="icons">
+    @for (icon of icons; track $index) {
+        <app-icon (click)="clickIcon($index)" [icon]="icon"/>
+    }
+    @if (socials) {
+        <app-socials></app-socials>
+    }
+</div>

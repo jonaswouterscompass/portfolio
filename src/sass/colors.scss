@@ -1,0 +1,13 @@
+$colors: (
+    dark: #242038,
+    light: #FFF,
+    pink: #E43A75,
+    yellow: #FFD23F,
+    brown: #813405,
+    blue:  #5C80BC,
+);
+
+@function color($base) {
+    $color: map-get($colors, $base);
+    @return $color;
+  }

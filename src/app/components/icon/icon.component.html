@@ -1,0 +1,9 @@
+@if (icon) {
+    <div [style.background-color]="icon.isFocussed ? 'rgba(119,190,248,0.3)':''" class="icon" (dblclick)="changeVariable(icon.variable)">
+        <img [src]="icon.image" alt="image">
+        <p>{{icon.display}}</p>
+        @if (icon.isShortcut) {
+            <img src="../../../assets/shortcut.jpg" alt="shortcut" class="before">
+        }
+    </div>
+}
