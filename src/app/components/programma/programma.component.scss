@@ -1,0 +1,25 @@
+@import '../../../sass/colors.scss';
+.programma{
+    width: 80px;
+    padding: 5px 5px 0 5px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    >img{
+        width: 100%;
+        object-position: center bottom;
+    }
+    img.before{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 64px;
+        left: 5px;
+    }
+    p{
+        text-align: center;
+        color: color(light);
+        font-size: smaller;
+        margin-top: -5px;
+    }
+}

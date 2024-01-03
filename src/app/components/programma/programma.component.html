@@ -1,0 +1,9 @@
+@if (programma) {
+    <div [style.background-color]="programma.options.isFocussed ? 'rgba(119,190,248,0.3)':''" class="programma" (dblclick)="changeState(programma)">
+        <img [src]="programma.image" alt="image">
+        <p>{{programma.name.option}}</p>
+        @if (programma.options.isShortcut) {
+            <img src="../../../assets/shortcut.jpg" alt="shortcut" class="before">
+        }
+    </div>
+}

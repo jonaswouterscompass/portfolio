@@ -1,0 +1,38 @@
+@import '../../../../sass/colors.scss';
+
+$footer_height: 30; /* px */
+$spacings: 10; /* px */
+$width: 407; /* px */
+$height: auto;
+.full-experience{
+    /* Positioning */
+    position: absolute;
+    overflow: visible;
+    z-index: 1000000000000000000;
+    /* Colors */
+    background-color: color(light);
+    /* Spacings */
+    bottom: calc(#{$footer_height}px + #{$spacings}px);
+    right: #{$spacings}px;
+    padding: #{$spacings}px;
+    border-radius: #{$spacings}px;
+    border: 1px solid color(dark);
+    /* Width */
+    width: #{$width}px;
+    max-width: calc(100% - #{$spacings * 2}px - #{$spacings * 2}px);
+    .important{
+        .title{
+            font-weight: bold;
+        }
+        i{
+            cursor: pointer;
+        }
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-bottom: #{$spacings}px;
+    }
+    p{
+        font-size: small;
+    }
+}

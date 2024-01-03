@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Icon } from '../interfaces/icon';
+import { Programma } from '../interfaces/programma';
 
 @Injectable({
   providedIn: 'root'
 })
-export class IconService {
-  icons: Icon[] = [
+export class ProgrammaService {
+  programs: Programma[] = [
     {
       image: '../../../assets/chrome.png',
       name: {option: 'aboutMe'},
@@ -23,7 +23,7 @@ export class IconService {
         isFocussed: false, 
         isShortcut: false, 
         isMinimized: false,
-        isOpen: true,
+        isOpen: false,
       }
     },
     {

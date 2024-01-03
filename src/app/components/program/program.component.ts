@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IconService } from '../../services/icon.service';
 import { CommonModule } from '@angular/common';
-import { Icon } from '../../interfaces/icon';
+import { Programma } from '../../interfaces/programma';
 
 @Component({
   selector: 'app-program',
@@ -11,17 +10,16 @@ import { Icon } from '../../interfaces/icon';
   styleUrl: './program.component.scss'
 })
 export class ProgramComponent {
-  @Input() icon: Icon | undefined;
+  @Input() programma: Programma | undefined;
 
-  constructor(private iconService: IconService){}
   closeProgram() {
-    if(this.icon){
-      this.icon.options.isOpen = false;
+    if(this.programma){
+      this.programma.options.isOpen = false;
     }
   }
   minimizeProgram(){
-    if(this.icon){
-      this.icon.options.isMinimized = true;
+    if(this.programma){
+      this.programma.options.isMinimized = true;
     }
   }
 }

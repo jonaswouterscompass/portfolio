@@ -1,15 +1,21 @@
-@if (icon) {
-    <app-program [icon]="icon">
+@if (programma) {
+    <app-program [programma]="programma">
         <app-explorer >
-
+            <div class="folders">
+                <div class="folder">folder1</div>
+                <div class="folder">folder2</div>
+                <div class="folder">folder3</div>
+                <div class="folder">folder4</div>
+                <div class="folder">folder5</div>
+            </div>
         </app-explorer>
     </app-program>
     
     <div class="folderBar">
-        {{ icon.name.option }}
+        {{ programma.name.option }}
     </div>
     <div class="folders">
-        @if (icon.name.option === "socials") {
+        @if (programma.name.option === "socials") {
             <!-- Folder for socials -->
             Alles voor socials
         }

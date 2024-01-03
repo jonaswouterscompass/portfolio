@@ -1,8 +1,8 @@
-@if (icon) {
-    <div #program class="program" [ngClass]="{minimalized: icon.options.isMinimized}">
+@if (programma) {
+    <div #program class="program" [ngClass]="{minimalized: programma.options.isMinimized}">
         <div #moveProgram class="title">
-            @if(icon.name){
-                {{icon.name.option}}
+            @if(programma.name){
+                {{programma.name.option}}
             }
         </div>
         <div class="topbarButton closeProgram" (click)="closeProgram()"><i class="fa-solid fa-x"></i></div>

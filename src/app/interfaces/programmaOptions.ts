@@ -1,4 +1,4 @@
-export interface IconOptions {
+export interface ProgrammaOptions {
     isFocussed: boolean,
     isShortcut?: boolean,
     isMinimized: boolean,

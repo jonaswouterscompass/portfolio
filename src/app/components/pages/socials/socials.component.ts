@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProgramComponent } from '../../program/program.component';
-import { Icon } from '../../../interfaces/icon';
+import { Programma } from '../../../interfaces/programma';
 import { ExplorerComponent } from '../../program/explorer/explorer.component';
 
 @Component({
@@ -11,5 +11,5 @@ import { ExplorerComponent } from '../../program/explorer/explorer.component';
   styleUrl: './socials.component.scss'
 })
 export class SocialsComponent{
-  @Input() icon: Icon | undefined;
+  @Input() programma: Programma | undefined;
 }
