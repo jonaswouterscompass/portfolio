@@ -1,9 +1,8 @@
-import { Variables } from "./variables";
+import { IconOptions } from "./iconOptions";
+import { IconNames } from "./iconNames";
 
 export interface Icon {
-    image: string,
-    display: string, 
-    variable: Variables, 
-    isFocussed: boolean,
-    isShortcut?: boolean,
+    image: string, 
+    name: IconNames, 
+    options: IconOptions;
 }

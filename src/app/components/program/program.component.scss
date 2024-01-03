@@ -1,0 +1,57 @@
+@import '../../../sass/colors.scss';
+
+$spacing_bottom: 30; /* px */
+$border_width: 2; /* px */
+$height_topbar: 25; /* px */
+
+.program{
+    /* Positioning */
+    position: absolute;
+    overflow: hidden;
+    bottom: #{$spacing_bottom}px;
+    height: calc(100vh - #{$spacing_bottom}px - #{$border_width * 2}px - #{$height_topbar}px);
+    left: 0;
+    width: calc(100vw - #{$border_width * 2}px);
+    z-index: 100;
+    padding-top: #{$height_topbar}px;
+    /* Border */
+    border-width: #{$border_width}px;
+    border-style: solid;
+    /* Colors */
+    background-color: color(light);
+    border-color: color(pink);
+    /* Transitions */
+    transition: all 0.2s ease-in-out;
+    &.minimalized{
+        width: 0vw;
+        height: 0vh;
+        border-width: 0px;
+    }
+    .title{
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 50px;
+        height: #{$height_topbar}px;
+        z-index: 10;
+    }
+    .topbarButton{
+        position: absolute;
+        top: 0;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: color(dark);
+        z-index: 11;
+    }
+    .closeProgram{
+        right: 0;
+    }
+    .minimizeProgram{
+        right: 30px;
+
+    }
+}

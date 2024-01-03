@@ -1,8 +1,8 @@
 <div class="icons">
-    @for (icon of icons; track $index) {
+    @for (icon of this.iconService.icons; track $index) {
         <app-icon (click)="clickIcon($index)" [icon]="icon"/>
-    }
-    @if (socials) {
-        <app-socials></app-socials>
+        @if (icon.name.option === "socials" && icon.options.isOpen) {
+            <app-socials [icon]="icon"/>
+        }
     }
 </div>

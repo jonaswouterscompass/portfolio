@@ -1,0 +1,12 @@
+@if (icon) {
+    <div #program class="program" [ngClass]="{minimalized: icon.options.isMinimized}">
+        <div #moveProgram class="title">
+            @if(icon.name){
+                {{icon.name.option}}
+            }
+        </div>
+        <div class="topbarButton closeProgram" (click)="closeProgram()"><i class="fa-solid fa-x"></i></div>
+        <div class="topbarButton minimizeProgram" (click)="minimizeProgram()"><i class="fa-solid fa-minus"></i></div>
+        <ng-content></ng-content>
+    </div>
+}

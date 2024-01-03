@@ -1,38 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IconComponent } from '../../icon/icon.component';
-import { Icon } from '../../../interfaces/icon';
 import { IconService } from '../../../services/icon.service';
 import { SocialsComponent } from '../../pages/socials/socials.component';
-import { VariablesService } from '../../../services/variables.service';
+import { ProjectsComponent } from '../../pages/projects/projects.component';
+import { ContactComponent } from '../../contact/contact.component';
+import { AboutMeComponent } from '../../pages/about-me/about-me.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [IconComponent, SocialsComponent],
+  imports: [IconComponent, SocialsComponent, ProjectsComponent, ContactComponent, AboutMeComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent implements OnInit {
-  icons: Icon[] | null = null;
-  socials: boolean = true;
+export class MenuComponent {
+  iconService: IconService;
 
-  constructor(private iconService: IconService, private variableService: VariablesService){
-    this.icons = this.iconService.icons;
+  constructor(private iService: IconService){
+    this.iconService = this.iService;
   }
 
-  ngOnInit(): void {
-    this.variableService.socials.subscribe({next: (data) => {
-      this.socials = data
-      console.log("socials:", this.socials)
-    }})
-  }
-  
   clickIcon(index: number) {
-    if(this.icons){
-      for(let i = 0; i < this.icons.length; i++){
-        this.icons[i].isFocussed = false;
-      }
-      this.icons[index].isFocussed = true
+    for(let i = 0; i < this.iconService.icons.length; i++){
+      this.iconService.icons[i].options.isFocussed = false;
     }
+    this.iconService.icons[index].options.isFocussed = true
   }
 }

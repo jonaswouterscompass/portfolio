@@ -6,9 +6,45 @@ import { Icon } from '../interfaces/icon';
 })
 export class IconService {
   icons: Icon[] = [
-    {image: '../../../assets/chrome.png', display: 'about me', variable: {option: 'aboutMe'}, isFocussed: false, isShortcut: true},
-    {image: '../../../assets/explorer.png', display: 'socials', variable: {option: 'socials'}, isFocussed: false},
-    {image: '../../../assets/explorer.png', display: 'projects', variable: {option: 'projects'}, isFocussed: false },
-    {image: '../../../assets/mail.jpg', display: 'contact', variable: {option: 'contact'}, isFocussed: false },
+    {
+      image: '../../../assets/chrome.png',
+      name: {option: 'aboutMe'},
+      options: {
+        isFocussed: false, 
+        isShortcut: true, 
+        isMinimized: false,
+        isOpen: false,
+      }
+    },
+    {
+      image: '../../../assets/explorer.png',
+      name: {option: 'socials'}, 
+      options: {
+        isFocussed: false, 
+        isShortcut: false, 
+        isMinimized: false,
+        isOpen: true,
+      }
+    },
+    {
+      image: '../../../assets/explorer.png',
+      name: {option: 'projects'}, 
+      options: {
+        isFocussed: false, 
+        isShortcut: false, 
+        isMinimized: false,
+        isOpen: false,
+      }
+    },
+    {
+      image: '../../../assets/mail.jpg',
+      name: {option: 'contact'}, 
+      options: {
+        isFocussed: false, 
+        isShortcut: false, 
+        isMinimized: false,
+        isOpen: false,
+      }
+    },
   ]
 }

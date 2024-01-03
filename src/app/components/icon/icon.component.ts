@@ -1,8 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { VariablesService } from '../../services/variables.service';
-import { Variables } from '../../interfaces/variables';
 import { Icon } from '../../interfaces/icon';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-icon',
@@ -13,11 +10,14 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class IconComponent {
   @Input() icon: Icon | null = null;
-  
-  constructor(private variableService: VariablesService){}
 
-  changeVariable(variable: Variables){
-    this.variableService[variable.option] = new BehaviorSubject(!this.variableService[variable.option])
-    console.log(variable.option + ":", this.variableService[variable.option])
+  changeState(icon:Icon){
+    if(icon.options.isOpen === true) {
+      icon.options.isMinimized = false;
+    }
+    else {
+      icon.options.isOpen = true;
+    }
+    
   }
 }

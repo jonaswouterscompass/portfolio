@@ -1,4 +1,17 @@
-<div #fileManagerSocials class="fileManager">
-    <div #fileManagerSocialsMove class="fileManagerMove"></div>
-    Socials
-</div>
+@if (icon) {
+    <app-program [icon]="icon">
+        <app-explorer >
+
+        </app-explorer>
+    </app-program>
+    
+    <div class="folderBar">
+        {{ icon.name.option }}
+    </div>
+    <div class="folders">
+        @if (icon.name.option === "socials") {
+            <!-- Folder for socials -->
+            Alles voor socials
+        }
+    </div>
+}
