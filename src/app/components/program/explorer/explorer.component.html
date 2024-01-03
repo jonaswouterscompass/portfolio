@@ -1,4 +1,7 @@
 <div class="explorer">
-    <div class="title">explorer</div>
     <ng-content></ng-content>
+    <div class="footer">
+        <div class="small" (click)="setSmall()">small</div>
+        <div class="large" (click)="setLarge()">large</div>
+    </div>
 </div>

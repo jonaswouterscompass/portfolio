@@ -31,9 +31,10 @@ $height_topbar: 25; /* px */
         position: absolute;
         left: 0;
         top: 0;
-        right: 50px;
+        right: 0;
         height: #{$height_topbar}px;
         z-index: 10;
+        border-bottom: 1px solid gray;
     }
     .topbarButton{
         position: absolute;

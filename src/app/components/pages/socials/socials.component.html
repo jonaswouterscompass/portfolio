@@ -1,6 +1,6 @@
 @if (programma) {
     <app-program [programma]="programma">
-        <app-explorer >
+        <app-explorer [ngClass]="{large: explorerSettings.size === 'large'}" >
             <div class="folders">
                 <div class="folder">folder1</div>
                 <div class="folder">folder2</div>
@@ -10,14 +10,4 @@
             </div>
         </app-explorer>
     </app-program>
-    
-    <div class="folderBar">
-        {{ programma.name.option }}
-    </div>
-    <div class="folders">
-        @if (programma.name.option === "socials") {
-            <!-- Folder for socials -->
-            Alles voor socials
-        }
-    </div>
 }

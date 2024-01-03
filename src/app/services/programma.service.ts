@@ -23,7 +23,7 @@ export class ProgrammaService {
         isFocussed: false, 
         isShortcut: false, 
         isMinimized: false,
-        isOpen: false,
+        isOpen: true,
       }
     },
     {
