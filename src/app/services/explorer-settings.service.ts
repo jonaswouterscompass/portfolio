@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ExplorerSettingsService {
-  size: "large" | "small" | undefined;
+  size: "large" | "small" | undefined = "small";
 }

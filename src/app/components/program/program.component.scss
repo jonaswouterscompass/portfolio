@@ -1,6 +1,6 @@
 @import '../../../sass/colors.scss';
+@import '../../../sass/variables.scss';
 
-$spacing_bottom: 30; /* px */
 $border_width: 2; /* px */
 $height_topbar: 25; /* px */
 
@@ -8,8 +8,8 @@ $height_topbar: 25; /* px */
     /* Positioning */
     position: absolute;
     overflow: hidden;
-    bottom: #{$spacing_bottom}px;
-    height: calc(100vh - #{$spacing_bottom}px - #{$border_width * 2}px - #{$height_topbar}px);
+    bottom: #{$footer_height}px;
+    height: calc(100vh - #{$footer_height}px - #{$border_width * 2}px - #{$height_topbar}px);
     left: 0;
     width: calc(100vw - #{$border_width * 2}px);
     z-index: 100;

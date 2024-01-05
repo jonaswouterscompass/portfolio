@@ -5,6 +5,35 @@
     overflow: hidden;
     cursor: pointer;
     position: relative;
+    &.explorer{
+        p {
+            color: black !important;
+        }
+        &.small{
+            padding: 5px;
+            border-bottom: 1px solid lightcyan;
+            height: 20px;
+            display: flex;
+            text-align: center;
+            width: 100%;
+            img {
+                width: 15px;
+                padding-right: 5px;
+                &.before{
+                    top: auto;
+                    bottom: 5px;
+                    left: 5px;
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+            p {
+                height: 20px;
+                color: black !important;
+                margin-top: 0;
+            }
+        }
+    }
     >img{
         width: 100%;
         object-position: center bottom;

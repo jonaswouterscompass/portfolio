@@ -2,7 +2,7 @@
     <div #program class="program" [ngClass]="{minimalized: programma.options.isMinimized}">
         <div #moveProgram class="title">
             @if(programma.name){
-                {{programma.name.option}}
+                {{programma.name}}
             }
         </div>
         <div class="topbarButton closeProgram" (click)="closeProgram()"><i class="fa-solid fa-x"></i></div>

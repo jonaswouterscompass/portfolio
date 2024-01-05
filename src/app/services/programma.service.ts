@@ -5,10 +5,11 @@ import { Programma } from '../interfaces/programma';
   providedIn: 'root'
 })
 export class ProgrammaService {
-  programs: Programma[] = [
+  startPrograms: Programma[] = [
     {
       image: '../../../assets/chrome.png',
-      name: {option: 'aboutMe'},
+      name: 'aboutMe',
+      size: '15kb',
       options: {
         isFocussed: false, 
         isShortcut: true, 
@@ -18,17 +19,19 @@ export class ProgrammaService {
     },
     {
       image: '../../../assets/explorer.png',
-      name: {option: 'socials'}, 
+      name: 'socials',
+      size: '15kb', 
       options: {
         isFocussed: false, 
         isShortcut: false, 
         isMinimized: false,
-        isOpen: true,
+        isOpen: false,
       }
     },
     {
       image: '../../../assets/explorer.png',
-      name: {option: 'projects'}, 
+      name: 'projects',
+      size: '15kb', 
       options: {
         isFocussed: false, 
         isShortcut: false, 
@@ -38,7 +41,8 @@ export class ProgrammaService {
     },
     {
       image: '../../../assets/mail.jpg',
-      name: {option: 'contact'}, 
+      name: 'contact',
+      size: '15kb', 
       options: {
         isFocussed: false, 
         isShortcut: false, 
@@ -46,5 +50,21 @@ export class ProgrammaService {
         isOpen: false,
       }
     },
+  ];
+
+
+  socialPrograms: Programma[] = [
+    {
+      image: '../../../assets/chrome.png',
+      name: 'linkedIn',
+      size: '0',
+      options: {
+        isFocussed: false,
+        isShortcut: true,
+        shortCutLink: 'https://www.linkedin.com/in/jonas1wouters/',
+        isMinimized: false,
+        isOpen: false,
+      }
+    }
   ]
 }

@@ -21,9 +21,9 @@ export class MenuComponent {
   }
 
   clickProgram(index: number) {
-    for(let i = 0; i < this.programmaService.programs.length; i++){
-      this.programmaService.programs[i].options.isFocussed = false;
+    for(let i = 0; i < this.programmaService.startPrograms.length; i++){
+      this.programmaService.startPrograms[i].options.isFocussed = false;
     }
-    this.programmaService.programs[index].options.isFocussed = true
+    this.programmaService.startPrograms[index].options.isFocussed = true
   }
 }
