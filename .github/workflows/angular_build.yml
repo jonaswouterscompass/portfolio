@@ -6,6 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -33,3 +34,5 @@ jobs:
           password: ${{secrets.SERVER_NAME}}
           port: 22
           protocol: sftp
+          local-dir: /dist/
+          server-dir: /
