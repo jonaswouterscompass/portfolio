@@ -1,4 +1,4 @@
-name: Angular Build
+name: Angular App Deploy
 
 on:
   push:
@@ -6,26 +6,36 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20.10.0'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build Angular App
-      run: npm run build
+      - name: Build Angular app
+        run: npm run build
 
-    - name: Archive Artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: dist
-        path: dist
+      - name: Set up FTP
+        uses: wtnb75/ftp-action@v2
+        with:
+          server: ${{ secrets.FTP_USERNAME }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          remoteDir: /path/to/your/website
+
+      - name: Remove existing files on server
+        run: |
+          curl -Q "DELE /*" ftp://${{ secrets.FTP_USERNAME }} --user ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}
+
+      - name: Upload files
+        run: |
+          find ./dist -type f -exec curl -T ftp://${{ secrets.SERVER_NAME }} --user ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }} \;
