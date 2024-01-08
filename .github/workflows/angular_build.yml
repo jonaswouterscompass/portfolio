@@ -27,4 +27,4 @@ jobs:
         with:
           server: ssh.jonas-digital.be 
           username: jonas-digital.be
-          password: ${{ secrets.FTP_PASSWORD }}
+          password: Goanderlecht1!
