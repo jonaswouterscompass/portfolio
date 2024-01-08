@@ -16,10 +16,10 @@ jobs:
         with:
           node-version: 20.10.0
 
-      - name: Install dependencies
+      - name: Installing dependencies
         run: npm install
 
-      - name: Build Angular app
+      - name: Angular Build
         run: npm run build
 
       - name: FTP Deploy
