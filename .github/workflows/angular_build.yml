@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ssh.jonas-digital.be 
           username: jonas-digital.be
