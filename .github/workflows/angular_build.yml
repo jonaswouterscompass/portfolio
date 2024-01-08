@@ -1,5 +1,3 @@
-name: Angular App Deploy
-
 on:
   push:
     branches:
@@ -24,18 +22,12 @@ jobs:
       - name: Build Angular app
         run: npm run build
 
-      - name: Set up FTP
-        uses: wtnb75/ftp-action@v2
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ${{ secrets.FTP_USERNAME }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          remoteDir: /path/to/your/website
-
-      - name: Remove existing files on server
-        run: |
-          curl -Q "DELE /*" ftp://${{ secrets.FTP_USERNAME }} --user ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}
-
-      - name: Upload files
-        run: |
-          find ./dist -type f -exec curl -T ftp://${{ secrets.SERVER_NAME }} --user ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }} \;
+          server-dir: /
+          local-dir: dist
+          exclude: .git,.github,.gitignore
