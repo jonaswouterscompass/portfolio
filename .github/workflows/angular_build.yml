@@ -23,9 +23,6 @@ jobs:
       - name: Angular Build
         run: npm run build
 
-      - name: To dist
-        run: cd dist
-
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
