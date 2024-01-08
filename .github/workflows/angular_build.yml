@@ -25,6 +25,6 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: ${{ secrets.SERVER_NAME }} 
-          username: ${{ secrets.FTP_USERNAME }}
+          server: ssh.jonas-digital.be 
+          username: jonas-digital.be
           password: ${{ secrets.FTP_PASSWORD }}
