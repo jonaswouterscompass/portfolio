@@ -33,6 +33,6 @@ jobs:
           username: jonas-digital.be
           password: ${{secrets.SERVER_NAME}}
           port: 22
-          protocol: sftp
+          protocol: ftps
           local-dir: /dist/
           server-dir: /
