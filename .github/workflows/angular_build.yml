@@ -22,9 +22,13 @@ jobs:
       - name: Angular Build
         run: npm run build
 
+      - name: To dist
+        run: cd dist
+
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: sftp://ssh.jonas-digital.be 
+          server: ssh.jonas-digital.be 
           username: jonas-digital.be
           password: ${{secrets.SERVER_NAME}}
+          port: 22
