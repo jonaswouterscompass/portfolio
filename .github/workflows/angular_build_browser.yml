@@ -30,6 +30,9 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
+    - name: Ensure gradlew script is executable
+      run: chmod +x ./gradlew
+
     - name: Build Android APK
       run: |
         ./gradlew assembleDebug
