@@ -12,7 +12,7 @@ $height: auto;
     /* Colors */
     background-color: color(light);
     /* Spacings */
-    bottom: calc(#{$footer_height}px + #{$spacings}px);
+    bottom: #{$spacings}px;
     right: #{$spacings}px;
     padding: #{$spacings}px;
     border-radius: #{$spacings}px;

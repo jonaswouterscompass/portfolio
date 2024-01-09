@@ -2,8 +2,10 @@
     <app-program [programma]="programma">
         <app-explorer>
             <div class="folders">
-                @for (programma of this.programmaService.socialPrograms; track $index) {
-                    <app-programma [programma]="programma" [size]="explorerSettings.size" [isExplorer]="true"/>
+                @for (programma of this.programmaService.startPrograms; track $index) {
+                    @if (programma.isSocials) {
+                        <app-programma [programma]="programma" [size]="explorerSettings.size" [isExplorer]="true"/>
+                    }
                 }
             </div>
         </app-explorer>

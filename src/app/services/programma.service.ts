@@ -10,6 +10,7 @@ export class ProgrammaService {
       image: '../../../assets/chrome.png',
       name: 'aboutMe',
       size: '15kb',
+      isDesktop: true,
       options: {
         isFocussed: false, 
         isShortcut: true, 
@@ -21,6 +22,7 @@ export class ProgrammaService {
       image: '../../../assets/explorer.png',
       name: 'socials',
       size: '15kb', 
+      isDesktop: true,
       options: {
         isFocussed: false, 
         isShortcut: false, 
@@ -32,6 +34,7 @@ export class ProgrammaService {
       image: '../../../assets/explorer.png',
       name: 'projects',
       size: '15kb', 
+      isDesktop: true,
       options: {
         isFocussed: false, 
         isShortcut: false, 
@@ -43,6 +46,7 @@ export class ProgrammaService {
       image: '../../../assets/mail.jpg',
       name: 'contact',
       size: '15kb', 
+      isDesktop: true,
       options: {
         isFocussed: false, 
         isShortcut: false, 
@@ -50,14 +54,11 @@ export class ProgrammaService {
         isOpen: false,
       }
     },
-  ];
-
-
-  socialPrograms: Programma[] = [
     {
       image: '../../../assets/chrome.png',
       name: 'linkedIn',
       size: '0',
+      isSocials: true,
       options: {
         isFocussed: false,
         isShortcut: true,
@@ -66,5 +67,5 @@ export class ProgrammaService {
         isOpen: false,
       }
     }
-  ]
+  ];
 }

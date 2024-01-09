@@ -1,6 +1,8 @@
 <div class="programs">
     @for (programma of this.programmaService.startPrograms; track $index) {
-        <app-programma (click)="clickProgram($index)" [programma]="programma"/>
+        @if (programma.isDesktop) {
+            <app-programma (click)="clickProgram($index)" [programma]="programma"/>
+        }
         @if (programma.name === "socials" && programma.options.isOpen) {
             <app-socials [programma]="programma"/>
         }
