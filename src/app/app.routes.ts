@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { MenuComponent } from './components/layout/menu/menu.component';
+import { DesktopComponent } from './components/layout/desktop/desktop.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 export const routes: Routes = [
-    { path: '', component:  MenuComponent },
+    { path: '', component:  LayoutComponent },
     { path: '**',   redirectTo: '', pathMatch: 'full' }
   ];

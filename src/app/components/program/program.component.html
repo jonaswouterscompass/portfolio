@@ -1,12 +1,38 @@
-@if (programma) {
-    <div #program class="program" [ngClass]="{minimalized: programma.options.isMinimized}">
-        <div #moveProgram class="title">
-            @if(programma.name){
-                {{programma.name}}
-            }
+@if (program) {
+    <div #programma 
+    class="program"
+    [ngClass]="{'fullScreen': program.options.isFullscreen}"
+    (click)="showOnTop()"
+    [ngStyle]="{
+        'z-index': true ? program.options.zIndex : 0,
+        'left': program.position ? program.position.place.left + 'px' : 0,
+        'top': program.position ? program.position.place.top + 'px' : 0,
+        'width': program.position ? program.position.size.width + 'px' : 0,
+        'height': program.position ? program.position.size.height + 'px' : 0,
+        'max-width': program.position && windowSize ? windowSize.width - program.position.place.left + 'px' : 0,
+        'max-height': program.position && windowSize ? windowSize.height - program.position.place.top - 45 + 'px' : 0
+        }">
+        <div 
+        class="topBar"
+        (mousedown)="onMouseDown($event)" 
+        (mousemove)="onMouseMove($event)" 
+        (mouseup)="onMouseUp()"
+        (dblclick)="toggleFullscreen()">
+            <div class="name">{{ program.name }}</div>
+            <div class="buttons">
+                <button (click)="minimize()">-</button>
+                <button (click)="toggleFullscreen()">
+                    @if(program.options.isFullscreen) {
+                        <i class="fa-solid fa-window-restore"></i>
+                    } @else {
+                        <i class="fa-solid fa-window-maximize"></i>
+                    }
+                </button>
+                <button (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
         </div>
-        <div class="topbarButton closeProgram" (click)="closeProgram()"><i class="fa-solid fa-x"></i></div>
-        <div class="topbarButton minimizeProgram" (click)="minimizeProgram()"><i class="fa-solid fa-minus"></i></div>
-        <ng-content></ng-content>
+        <div class="content">
+            <ng-content select="[content]"></ng-content>
+        </div>
     </div>
 }

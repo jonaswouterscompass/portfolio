@@ -1,58 +1,44 @@
-@import '../../../sass/colors.scss';
-@import '../../../sass/variables.scss';
-
-$border_width: 2; /* px */
-$height_topbar: 25; /* px */
-
 .program{
-    /* Positioning */
-    position: absolute;
+    min-width: 200px;
+    min-height: 150px;
+    width: 50%;
+    height: 50%;
     overflow: hidden;
-    bottom: 0;
-    height: calc(100vh - #{$footer_height}px - #{$border_width * 2}px - #{$height_topbar}px);
-    left: 0;
-    width: calc(100vw - #{$border_width * 2}px);
-    z-index: 100;
-    padding-top: #{$height_topbar}px;
-    /* Border */
-    border-width: #{$border_width}px;
-    border-style: solid;
-    /* Colors */
-    background-color: color(light);
-    border-color: color(pink);
-    /* Transitions */
-    transition: all 0.2s ease-in-out;
-    &.minimalized{
-        width: 0vw;
-        height: 0vh;
-        border-width: 0px;
+    position: absolute;
+    background-color: white;
+    box-sizing: border-box;
+    border: 2px solid black;
+    resize: both;
+    &.fullScreen{
+        resize: none;
+        .topBar{
+            user-select: none;
+            cursor: initial;
+        }
     }
-    .title{
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        height: #{$height_topbar}px;
-        z-index: 10;
-        border-bottom: 1px solid gray;
-    }
-    .topbarButton{
-        position: absolute;
-        top: 0;
-        width: 30px;
-        height: 25px;
-        cursor: pointer;
+    .topBar{
+        cursor: grab;
+        padding: 5px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        color: color(dark);
-        z-index: 11;
+        justify-content: space-between;
+        background-color: lightgray;
+        .buttons{
+            display: flex;
+            gap: 5px;
+            button{
+                cursor: pointer;
+                width: 40px;
+                background-color: white;
+                border: 0;
+                border-radius: 2px;
+                i {
+                    color: black;
+                }
+            }
+        }
     }
-    .closeProgram{
-        right: 0;
-    }
-    .minimizeProgram{
-        right: 30px;
-
+    .content{
+        padding: 5px;
     }
 }

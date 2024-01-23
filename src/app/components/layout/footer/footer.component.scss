@@ -1,0 +1,50 @@
+@import '../../../../sass/colors.scss';
+@import '../../../../sass/variables.scss';
+
+.footer{
+    height: 100%;
+    background-color: color(dark);
+    color: color(light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .startButton{
+        width: 30px;
+    }
+    .openPages{
+        display: flex;
+        position: relative;
+        gap: 3px;
+        .openPage{
+            position: relative;
+            &.isMinimized{
+                background-color: rgba(0, 0, 0, 1) !important;
+            }
+            background-color: rgba(200, 200, 255, 0.4);
+            border-bottom: 2px solid lightblue;
+            height: calc(#{$footer_height}px - 2px);
+            width: #{$footer_height}px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .icon{
+                width: calc(#{$footer_height}px - 10px);
+            }
+            .name {
+                position: absolute;
+                bottom: 100%;
+                left: 0;
+                display: none;
+                white-space: nowrap;
+            }
+            &:hover{
+                .name{
+                    display: block;
+                }
+            }
+        }
+    }
+    .settings{
+        width: 30px;
+    }
+}

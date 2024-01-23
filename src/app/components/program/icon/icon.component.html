@@ -1,0 +1,12 @@
+@if (program) {
+    <div class="program" [ngClass]="{'small': isLarge, 'darkBackground': darkBackground}">
+        <div class="img">
+            <img class="icon" [src]="program.image" alt="icon">
+            @if (program.options.isShortcut) {
+                <img class="before" src="../../../../assets/shortcut.jpg" alt="shortcut">
+            }
+        </div>
+        <div class="name">{{program.name}}</div>
+        <div class="size">{{program.size}}</div>
+    </div>
+}

@@ -1,0 +1,26 @@
+@import '../../../../sass/colors.scss';
+
+.program{
+    width: 65px;
+    .img{
+        position: relative;
+        .icon{
+            width: 100%;
+        }
+        .before{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 20px;
+        }
+    }
+    .name{
+        text-align: center;
+    }
+    .size{
+        display: none;
+    }
+    &.darkBackground{
+        color: color(light);
+    }
+}

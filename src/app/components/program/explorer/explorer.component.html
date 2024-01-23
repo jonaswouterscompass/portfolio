@@ -1,7 +1,5 @@
-<div class="explorer">
-    <ng-content></ng-content>
-    <div class="footer">
-        <div class="small" (click)="setSmall()">small</div>
-        <div class="large" (click)="setLarge()">large</div>
+<app-program (closeProgram)="onCloseProgram()" (minimizeProgram)="onMinimizedProgram()" [program]="program">
+    <div class="explorer" content>
+        <ng-content select="[content]"></ng-content>
     </div>
-</div>
+</app-program>

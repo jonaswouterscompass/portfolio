@@ -1,0 +1,25 @@
+<div class="desktop">
+    <div class="background">
+        <img src="../../../../assets/background.png" alt="Background image for desktop" class="backgroundImage">
+        <img src="../../../../assets/LogoNoBg.png" alt="Background logo for desktop" class="backgroundLogo">
+    </div>
+    <div class="desktopIcons">
+        @for (program of programService?.getDesktopPrograms(); track $index) {
+            <app-icon [program]="program" [darkBackground]="true"></app-icon>
+        }    
+    </div>
+    @if (programService && programService.getOpenPrograms().length > 0) {
+        <div class="programs">
+            @for (program of programService.getOpenPrograms(); track $index){
+                @if (!program.options.isMinimized) {
+                    @if (program.name === "socials") {
+                        <app-socials [program]="program"></app-socials>
+                    }
+                    @if (program.name === "projects") {
+                        <app-socials [program]="program"></app-socials>
+                    }
+                }
+            }
+        </div>
+    }
+</div>
