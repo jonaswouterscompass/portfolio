@@ -1,7 +1,7 @@
 <div class="footer">
     <img class="startButton" src="../../../../assets/startup.png" alt="startup">
     <div class="openPages">
-        @for (program of programService?.getOpenPrograms(); track $index) {
+        @for (program of programService.getOpenPrograms(); track $index) {
             <div class="openPage" [ngClass]="{'isMinimized': program.options.isMinimized}" (click)="toggleMinimizeProgram(program)">
                 <img class="icon" [src]="program.image" alt="Programma icon">
                 <div class="name">{{program.name}}</div>

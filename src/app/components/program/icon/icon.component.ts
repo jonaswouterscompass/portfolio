@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Program } from '../../../interfaces/program';
 import { CommonModule } from '@angular/common';
+import { ExplorerSettingsService } from '../../../services/explorer-settings.service';
 
 @Component({
   selector: 'app-icon',
@@ -12,5 +13,11 @@ import { CommonModule } from '@angular/common';
 export class IconComponent {
   @Input() program: Program | undefined;
   @Input() darkBackground: boolean = false;
-  @Input() isLarge?: boolean;
+  @Input() isExplorer: boolean = true;
+
+  explorerSettings: ExplorerSettingsService;
+
+  constructor(explorerSettings: ExplorerSettingsService) {
+    this.explorerSettings = explorerSettings;
+  }
 }

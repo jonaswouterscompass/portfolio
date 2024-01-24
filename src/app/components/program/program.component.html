@@ -14,13 +14,12 @@
         }">
         <div 
         class="topBar"
-        (mousedown)="onMouseDown($event)" 
-        (mousemove)="onMouseMove($event)" 
-        (mouseup)="onMouseUp()"
+        (mousedown)="onMouseDown($event)"
+        (touchstart)="onMouseDown($event)"
         (dblclick)="toggleFullscreen()">
             <div class="name">{{ program.name }}</div>
             <div class="buttons">
-                <button (click)="minimize()">-</button>
+                <button (click)="minimize()"><i class="fa-solid fa-minus"></i></button>
                 <button (click)="toggleFullscreen()">
                     @if(program.options.isFullscreen) {
                         <i class="fa-solid fa-window-restore"></i>
@@ -33,6 +32,7 @@
         </div>
         <div class="content">
             <ng-content select="[content]"></ng-content>
+            <ng-content select="[bottomBar]"></ng-content>
         </div>
     </div>
 }

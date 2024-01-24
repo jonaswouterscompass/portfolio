@@ -5,7 +5,7 @@
     </div>
     <div class="desktopIcons">
         @for (program of programService?.getDesktopPrograms(); track $index) {
-            <app-icon [program]="program" [darkBackground]="true"></app-icon>
+                <app-icon [isExplorer]="false" [program]="program" [darkBackground]="true"></app-icon>
         }    
     </div>
     @if (programService && programService.getOpenPrograms().length > 0) {
@@ -16,7 +16,7 @@
                         <app-socials [program]="program"></app-socials>
                     }
                     @if (program.name === "projects") {
-                        <app-socials [program]="program"></app-socials>
+                        <app-projects [program]="program"></app-projects>
                     }
                 }
             }

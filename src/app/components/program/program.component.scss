@@ -12,7 +12,6 @@
     &.fullScreen{
         resize: none;
         .topBar{
-            user-select: none;
             cursor: initial;
         }
     }
@@ -39,6 +38,10 @@
         }
     }
     .content{
-        padding: 5px;
+        user-select: all !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100% - 26px);
     }
 }

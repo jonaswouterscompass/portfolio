@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Place, Position, Size } from '../../interfaces/position';
 import { CommonModule } from '@angular/common';
 import { ProgramService } from '../../services/program.service';
@@ -32,28 +32,62 @@ export class ProgramComponent implements OnInit {
     this.windowSize = { width: window.innerWidth, height: window.innerHeight}
   }
 
-  onMouseMove(event: MouseEvent) {
-    if(this.isDragging && this.program?.position && this.startPlace) {
-      this.program.position.place.left = this.startPlace.left + (-this.startMouse.left + event.clientX)
-      this.program.position.place.top = this.startPlace.top + (-this.startMouse.top + event.clientY)
+  @HostListener('document:mousemove', ['$event'])
+  @HostListener('document:touchmove', ['$event'])
+  onMouseMove(event: MouseEvent | TouchEvent) {
+    if(!this.isDragging || !this.program?.position || !this.startPlace) {
+      return;
     }
+    
+    let tempNewPlace: Place = {left: 0, top: 0};
+
+    if (event instanceof MouseEvent){
+      tempNewPlace = { 
+        left: this.startPlace.left + (-this.startMouse.left + event.clientX), 
+        top: this.startPlace.top + (-this.startMouse.top + event.clientY) 
+      }
+    } else if (event instanceof TouchEvent){
+      tempNewPlace = { 
+        left: this.startPlace.left + (-this.startMouse.left + event.touches[0].clientX), 
+        top: this.startPlace.top + (-this.startMouse.top + event.touches[0].clientY)
+      }
+    }
+
+    const newPlace: Place = {
+      left: Math.min(window.innerWidth - 200, Math.max(0, tempNewPlace.left)),
+      top: Math.min(window.innerHeight - 200, Math.max(0, tempNewPlace.top))
+    }
+
+    this.program.position.place = newPlace;
   }
 
+  @HostListener('document:mouseup', ['$event'])
+  @HostListener('document:touchend', ['$event'])
   onMouseUp() {
-    /* No implementation */
+    if(!this.isDragging) return
+    console.log("mouseUp")
+    this.isDragging = false;
   }
 
-  onMouseDown(event: MouseEvent) {
-    if(this.program) this.program.options.zIndex = ++this.programService.zIndex
-    this.startMouse = {left: event.clientX, top: event.clientY}
-    if(this.program?.position){
-      this.startPlace = {left: this.program.position.place.left, top: this.program.position.place.top};
-    }
-    this.isDragging = !this.isDragging;
+  onMouseDown(event: MouseEvent | TouchEvent) {
+    if(!this.program?.position) return
+
+    this.program.options.zIndex = ++this.programService.zIndex
+    if (event instanceof MouseEvent) this.startMouse = {left: event.clientX, top: event.clientY}
+    if (event instanceof TouchEvent) this.startMouse = {left: event.touches[0].clientX, top: event.touches[0].clientY}
+    
+    this.startPlace = {left: this.program.position.place.left, top: this.program.position.place.top};
+    this.isDragging = true;
   }
 
   toggleFullscreen(): void{
-    if(this.program) this.program.options.isFullscreen = !this.program.options.isFullscreen
+    if(!this.program?.position) return
+    this.program.options.isFullscreen = !this.program.options.isFullscreen
+    if(this.program.options.isFullscreen){
+      this.program.position = {place: {left:0, top:0}, size: {width: window.innerWidth, height: window.innerHeight}}
+    } else {
+      this.program.position = this.initialPosition;
+    }
   }
 
   showOnTop(): void {

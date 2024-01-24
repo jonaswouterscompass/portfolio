@@ -1,5 +1,14 @@
-<app-program (closeProgram)="onCloseProgram()" (minimizeProgram)="onMinimizedProgram()" [program]="program">
-    <div class="explorer" content>
-        <ng-content select="[content]"></ng-content>
-    </div>
+<app-program [program]="program">
+        <div class="icons" content>
+            <ng-content select="[content]"></ng-content>
+        </div>
+        <div class="buttons" bottomBar>
+            <button (click)="toggleSmallIcons()">
+                @if (explorerSettings.isSmallIcons) {
+                    Large
+                } @else {
+                    Small
+                }
+            </button>
+        </div>
 </app-program>

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProgramComponent } from '../program.component';
 import { Program } from '../../../interfaces/program';
+import { ExplorerSettingsService } from '../../../services/explorer-settings.service';
 
 @Component({
   selector: 'app-explorer',
@@ -11,14 +12,13 @@ import { Program } from '../../../interfaces/program';
 })
 export class ExplorerComponent {
   @Input() program: Program | undefined;
-  
-  @Output() closeProgram: EventEmitter<void> = new EventEmitter<void>();
-  onCloseProgram() {
-    this.closeProgram.emit();
+  explorerSettings: ExplorerSettingsService;
+
+  constructor(explorerSettings: ExplorerSettingsService){
+    this.explorerSettings = explorerSettings; 
   }
 
-  @Output() minimizedProgram: EventEmitter<void> = new EventEmitter<void>();
-  onMinimizedProgram() {
-    this.minimizedProgram.emit();
+  toggleSmallIcons(): void{
+    this.explorerSettings.isSmallIcons = !this.explorerSettings.isSmallIcons
   }
 }

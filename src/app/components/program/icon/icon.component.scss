@@ -23,4 +23,32 @@
     &.darkBackground{
         color: color(light);
     }
+    &.small{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 10px;
+        width: calc(100% - 20px);
+        &:hover{
+            background-color: rgba(100, 100, 255, 0.3);
+        }
+        >.img{
+            width: 15px;
+            height: 15px;
+            .icon{
+                width: 15px;
+            }
+            .before{
+                width: 7px;
+            }
+        }
+        .name{
+            flex: 1;
+            text-align: left;
+        }
+        .size{
+            display: initial;
+            color: gray;
+        }
+    }
 }

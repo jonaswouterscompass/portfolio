@@ -1,5 +1,5 @@
 @if (program) {
-    <div class="program" [ngClass]="{'small': isLarge, 'darkBackground': darkBackground}">
+    <div class="program" [ngClass]="{'small': explorerSettings.isSmallIcons && isExplorer, 'darkBackground': darkBackground}">
         <div class="img">
             <img class="icon" [src]="program.image" alt="icon">
             @if (program.options.isShortcut) {

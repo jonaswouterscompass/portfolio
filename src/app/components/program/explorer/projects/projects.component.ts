@@ -1,22 +1,22 @@
 import { Component, Input } from '@angular/core';
-import { ExplorerComponent } from '../explorer.component';
 import { Program } from '../../../../interfaces/program';
-import { IconComponent } from '../../icon/icon.component';
 import { ProgramService } from '../../../../services/program.service';
-import { ExplorerSettingsService } from '../../../../services/explorer-settings.service';
+import { ExplorerComponent } from '../explorer.component';
+import { IconComponent } from '../../icon/icon.component';
 import { CommonModule } from '@angular/common';
+import { ExplorerSettingsService } from '../../../../services/explorer-settings.service';
 
 @Component({
-  selector: 'app-socials',
+  selector: 'app-projects',
   standalone: true,
   imports: [CommonModule, ExplorerComponent, IconComponent],
-  templateUrl: './socials.component.html',
-  styleUrl: './socials.component.scss'
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.scss'
 })
-export class SocialsComponent {
+export class ProjectsComponent {
   @Input() program: Program | undefined;
   programService: ProgramService;
-  explorerSettings: ExplorerSettingsService
+  explorerSettings: ExplorerSettingsService;
 
   constructor(programService: ProgramService, explorerSettings: ExplorerSettingsService) {
     this.programService = programService;
