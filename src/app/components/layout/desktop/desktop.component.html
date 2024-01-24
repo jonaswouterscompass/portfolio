@@ -1,10 +1,10 @@
 <div class="desktop">
     <div class="background">
-        <img src="../../../../assets/background.png" alt="Background image for desktop" class="backgroundImage">
+        <img [src]="backgroundService.getBackground()" alt="Background image for desktop" class="backgroundImage">
         <img src="../../../../assets/LogoNoBg.png" alt="Background logo for desktop" class="backgroundLogo">
     </div>
     <div class="desktopIcons">
-        @for (program of programService?.getDesktopPrograms(); track $index) {
+        @for (program of programService.getDesktopPrograms(); track $index) {
                 <app-icon [isExplorer]="false" [program]="program" [darkBackground]="true"></app-icon>
         }    
     </div>
@@ -22,4 +22,7 @@
             }
         </div>
     }
+    <div class="settings">
+        <app-settings/>
+    </div>
 </div>

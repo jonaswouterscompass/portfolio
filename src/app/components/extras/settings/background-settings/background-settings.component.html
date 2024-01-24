@@ -1,0 +1,17 @@
+<div class="background">
+    <h2>background settings</h2>
+    <div class="uploadImage">
+        <div class="buttons">
+            <button (click)="changeType('url')">url</button>
+            <button (click)="changeType('file')">file</button>
+        </div>
+        <form (submit)="submitForm()">
+            <input *ngIf="type==='url'" type="text" [(ngModel)]="imageUrl" placeholder="Enter URL" [ngModelOptions]="{standalone: true}">
+            <input *ngIf="type==='file'" type="file" (change)="onFileSelected($event)">
+            <div *ngIf="type==='file' && !isImageSelected" class="error-message">
+              Please select a valid image file (jpeg, png, jpg).
+            </div>
+            <button type="submit" [ngClass]="{'disable': !canSubmit()}">Upload</button>
+        </form>
+    </div>
+</div>

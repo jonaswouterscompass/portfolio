@@ -1,0 +1,27 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .uploadImage{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .buttons{
+            display: flex;
+            gap: 10px;
+            button{ 
+                flex: 1;
+            }
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            .error-message {
+                color: red;
+            }
+            .disable{
+                display: none;
+            }
+        }
+    }
+}
