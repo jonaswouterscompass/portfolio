@@ -64,8 +64,7 @@ export class ProgramComponent implements OnInit {
   @HostListener('document:mouseup', ['$event'])
   @HostListener('document:touchend', ['$event'])
   onMouseUp() {
-    if(!this.isDragging) return
-    console.log("mouseUp")
+    if(!this.isDragging) return;
     this.isDragging = false;
   }
 

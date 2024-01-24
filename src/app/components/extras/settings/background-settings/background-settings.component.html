@@ -1,5 +1,12 @@
 <div class="background">
     <h2>background settings</h2>
+
+    <div *ngIf="!backgroundService.isValid" class="error-message">
+        The current background is not valid (using default background instead)
+    </div>    
+    <div *ngIf="backgroundService.isValid && backgroundService.getBackground() !== 'assets/background.png'" class="error-message">
+        The current background is valid
+    </div>
     <div class="uploadImage">
         <div class="buttons">
             <button (click)="changeType('url')">url</button>

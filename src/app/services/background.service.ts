@@ -5,10 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class BackgroundService {
   private localStorageKey = "customBackground";
+  public isValid: boolean = true;
 
   getBackground(): string{
     const storedBackground = localStorage.getItem(this.localStorageKey);
-    return storedBackground || 'assets/background.png'; 
+    if(!storedBackground) return 'assets/background.png';
+
+    const img = new Image();
+    img.src = storedBackground;
+    if(!img.complete || img.width <= 0 || img.height <= 0) {
+      this.isValid = false;
+      return 'assets/background.png';
+    }
+    this.isValid = true;
+    return storedBackground;
   }
 
   setBackground(imagePath: string): void {

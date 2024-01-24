@@ -15,11 +15,16 @@ export class BackgroundSettingsComponent {
   imageUrl: string | undefined;
   selectedFile: File | undefined;
   isImageSelected: boolean = false;
+  backgroundService: BackgroundService;
 
-  constructor(private backgroundService: BackgroundService) {}
+  constructor(backgroundService: BackgroundService) {
+    this.backgroundService = backgroundService;
+  }
 
   changeType(type: 'url' | 'file'): void {
     this.type = type;
+    this.imageUrl = undefined;
+    this.selectedFile = undefined;
   }
 
   canSubmit(): boolean {
@@ -34,11 +39,9 @@ export class BackgroundSettingsComponent {
     } else if (this.type === 'file' && this.selectedFile && this.isImageSelected) {
       this.getBase64(this.selectedFile)
         .then((base64String) => {
-          console.log(base64String);
           if (base64String.length > 5) {
             this.backgroundService.setBackground(base64String);
           }
-          console.log(this.backgroundService.getBackground());
         })
         .catch((error) => {
           console.error('Error converting file to base64:', error);
