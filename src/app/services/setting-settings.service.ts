@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SettingSettingsService {
-  settingsOpen: boolean = true;
+  settingsOpen: boolean = false;
   
   toggleSettings(): void {
     this.settingsOpen = !this.settingsOpen;

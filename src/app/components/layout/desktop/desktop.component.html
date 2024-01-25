@@ -1,12 +1,12 @@
 <div class="desktop">
     <div class="background">
-        <img [src]="backgroundService.getBackground()" alt="Background image for desktop" class="backgroundImage">
+        <img [src]="backgroundService.background" alt="Background image for desktop" class="backgroundImage">
         <img src="../../../../assets/LogoNoBg.png" alt="Background logo for desktop" class="backgroundLogo">
     </div>
     <div class="desktopIcons">
         @for (program of programService.getDesktopPrograms(); track $index) {
-                <app-icon [isExplorer]="false" [program]="program" [darkBackground]="true"></app-icon>
-        }    
+                <app-icon [isExplorer]="false" [program]="program" [darkBackground]="backgroundService.brightness <= 125"></app-icon>
+        }
     </div>
     @if (programService && programService.getOpenPrograms().length > 0) {
         <div class="programs">
@@ -24,5 +24,8 @@
     }
     <div class="settings">
         <app-settings/>
+    </div>
+    <div class="notifications">
+        <app-notifications/>
     </div>
 </div>

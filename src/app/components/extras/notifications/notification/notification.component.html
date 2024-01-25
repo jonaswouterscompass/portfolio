@@ -1,0 +1,7 @@
+@if (notification) {
+    <div class="notification">
+        <button (click)="deleteNotification(notification.index)"><i class="fa-solid fa-xmark"></i></button>
+        <div class="title">{{notification.name}}</div>
+        <div class="description">{{notification.description}}</div>
+    </div>
+}

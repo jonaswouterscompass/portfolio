@@ -1,1 +1,5 @@
-<p>notifications works!</p>
+<div class="notifications">
+    @for (notification of notificationService.notifications; track $index) {
+        <app-notification [notification]="notification"></app-notification>
+    }
+</div>
