@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProgramComponent } from '../program.component';
 import { Program } from '../../../interfaces/program';
-import { ExplorerSettingsService } from '../../../services/explorer-settings.service';
+import { ExplorerSettingsService } from '../../../services/settings/explorer-settings.service';
 
 @Component({
   selector: 'app-explorer',

@@ -1,12 +1,20 @@
 <div class="footer">
-    <img class="startButton" src="../../../../assets/startup.png" alt="startup">
-    <div class="openPages">
+    <i class="fa-solid fa-house-user icon start"></i>
+    <div class="openPages center">
         @for (program of programService.getOpenPrograms(); track $index) {
-            <div class="openPage" [ngClass]="{'isMinimized': program.options.isMinimized}" (click)="toggleMinimizeProgram(program)">
-                <img class="icon" [src]="program.image" alt="Programma icon">
+            <div class="openPage" [ngClass]="{'minimized': program.options.isMinimized}" (click)="toggleMinimizeProgram(program)">
+                <i [ngClass]="program.iconClass"></i>
                 <div class="name">{{program.name}}</div>
             </div>
         }
     </div>
-    <img class="settings" (click)="settingSettings.toggleSettings()" src="../../../../assets/settings_white.png" alt="settings">
+    <div class="end">
+        <i class="fa-solid fa-gears icon" (click)="rightBottomSettings.setSettingsOpen(!rightBottomSettings.settingsOpen)"></i>
+        @if (notivicationService.notifications.length > 0) {
+            <div class="notifications" (click)="rightBottomSettings.setNotificationOpen(!rightBottomSettings.notificationOpen)">
+                <div class="amount">{{ notivicationService.notifications.length }}</div>
+                <i class="fa-solid fa-bell icon"></i>
+            </div>
+        }
+    </div>
 </div>

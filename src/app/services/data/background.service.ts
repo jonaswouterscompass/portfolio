@@ -36,6 +36,7 @@ export class BackgroundService {
   setDefaultBackground(): void {
     this.isValid = true;
     this.background = this.defaultBackground;
+    localStorage.setItem(this.localStorageKey, this.background);
     this.loadBackground(this.defaultBackground);
   }
   
@@ -63,6 +64,7 @@ export class BackgroundService {
     if (!ctx) return;
 
     ctx.drawImage(img, 0, 0);
+    ctx.fillStyle = "red"
 
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imageData.data;

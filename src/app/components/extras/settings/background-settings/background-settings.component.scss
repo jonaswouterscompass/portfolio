@@ -11,6 +11,10 @@
             gap: 10px;
             button{ 
                 flex: 1;
+                &.selected{
+                    background-color: black;
+                    color: white;
+                }
             }
         }
         form{

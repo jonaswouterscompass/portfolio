@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { ExplorerComponent } from '../explorer.component';
 import { Program } from '../../../../interfaces/program';
 import { IconComponent } from '../../icon/icon.component';
-import { ProgramService } from '../../../../services/program.service';
-import { ExplorerSettingsService } from '../../../../services/explorer-settings.service';
+import { ProgramService } from '../../../../services/data/program.service';
+import { ExplorerSettingsService } from '../../../../services/settings/explorer-settings.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

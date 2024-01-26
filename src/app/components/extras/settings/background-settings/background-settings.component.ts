@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BackgroundService } from '../../../../services/background.service';
+import { BackgroundService } from '../../../../services/data/background.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './background-settings.component.scss'
 })
 export class BackgroundSettingsComponent {
-  type: 'url' | 'file' = 'url';
+  type: 'url' | 'file' | 'default' = 'url';
   imageUrl: string | undefined;
   selectedFile: File | undefined;
   isImageSelected: boolean = false;
@@ -19,9 +19,10 @@ export class BackgroundSettingsComponent {
 
   constructor(backgroundService: BackgroundService) {
     this.backgroundService = backgroundService;
+    if(backgroundService.background === 'assets/background.png') this.type = 'default';
   }
 
-  changeType(type: 'url' | 'file'): void {
+  changeType(type: 'url' | 'file' | 'default'): void {
     this.type = type;
     this.imageUrl = undefined;
     this.selectedFile = undefined;

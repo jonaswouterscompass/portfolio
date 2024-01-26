@@ -1,7 +1,7 @@
 @if (program) {
     <div class="program" [ngClass]="{'small': explorerSettings.isSmallIcons && isExplorer, 'darkBackground': darkBackground}">
         <div class="img">
-            <img class="icon" [src]="program.image" alt="icon">
+            <i [ngClass]="program.iconClass"></i>
             @if (program.options.isShortcut) {
                 <img class="before" src="../../../../assets/shortcut.jpg" alt="shortcut">
             }

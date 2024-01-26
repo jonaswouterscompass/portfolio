@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
   }
     
   private resizeWindow(element: HTMLElement): void{
-    element.style.width = window.innerWidth + "px";
+    element.style.width = window.innerWidth + 0.8 + "px";
     element.style.height = window.innerHeight + "px";
   }
 }

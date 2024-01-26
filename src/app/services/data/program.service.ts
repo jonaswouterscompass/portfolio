@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Program } from '../interfaces/program';
+import { Program } from '../../interfaces/program';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class ProgramService {
   /* Programs */
   programs: Program[] = [
     {
-      image: '../../../assets/chrome.png',
+      iconClass: ['fa-solid', 'fa-globe'],
       name: 'about me',
       size: '15kb',
       options: {
@@ -22,7 +22,7 @@ export class ProgramService {
       }
     },
     {
-      image: '../../../assets/explorer.png',
+      iconClass: ['fa-solid', 'fa-folder'],
       name: 'socials',
       size: '15kb', 
       options: {
@@ -36,7 +36,7 @@ export class ProgramService {
       }
     },
     {
-      image: '../../../assets/explorer.png',
+      iconClass: ['fa-solid', 'fa-folder'],
       name: 'projects',
       size: '15kb', 
       options: {
@@ -50,7 +50,7 @@ export class ProgramService {
       }
     },
     {
-      image: '../../../assets/mail.jpg',
+      iconClass: ['fa-solid', 'fa-envelope'],
       name: 'contact',
       size: '15kb', 
       options: {
@@ -64,7 +64,7 @@ export class ProgramService {
       }
     },
     {
-      image: '../../../assets/chrome.png',
+      iconClass: ['fa-solid', 'fa-globe'],
       name: 'linkedIn',
       size: '0',
       options: {
@@ -79,7 +79,7 @@ export class ProgramService {
       }
     },
     {
-      image: '../../../assets/text.png',
+      iconClass: ['fa-solid', 'fa-font'],
       name: 'My life',
       size: '55kb',
       options: {

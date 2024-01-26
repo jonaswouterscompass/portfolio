@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Place, Position, Size } from '../../interfaces/position';
 import { CommonModule } from '@angular/common';
-import { ProgramService } from '../../services/program.service';
+import { ProgramService } from '../../services/data/program.service';
 import { Program } from '../../interfaces/program';
 
 @Component({

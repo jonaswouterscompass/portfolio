@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Program } from '../../../interfaces/program';
 import { CommonModule } from '@angular/common';
-import { ExplorerSettingsService } from '../../../services/explorer-settings.service';
+import { ExplorerSettingsService } from '../../../services/settings/explorer-settings.service';
 
 @Component({
   selector: 'app-icon',

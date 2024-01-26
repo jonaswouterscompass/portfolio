@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { ProgramService } from '../../../services/program.service';
+import { ProgramService } from '../../../services/data/program.service';
 import { CommonModule } from '@angular/common';
 import { Program } from '../../../interfaces/program';
-import { SettingSettingsService } from '../../../services/setting-settings.service';
+import { NotificationService } from '../../../services/data/notification.service';
+import { RightBottomService } from '../../../services/settings/right-bottom.service';
 
 @Component({
   selector: 'app-footer',
@@ -13,11 +14,13 @@ import { SettingSettingsService } from '../../../services/setting-settings.servi
 })
 export class FooterComponent {
   programService: ProgramService;
-  settingSettings: SettingSettingsService;
+  rightBottomSettings: RightBottomService;
+  notivicationService: NotificationService
 
-  constructor(programService: ProgramService, settingSettings: SettingSettingsService){
+  constructor(programService: ProgramService, rightBottomSettings: RightBottomService, notivicationService: NotificationService){
     this.programService = programService;
-    this.settingSettings = settingSettings;
+    this.rightBottomSettings = rightBottomSettings;
+    this.notivicationService = notivicationService;
   }
 
   toggleMinimizeProgram(program: Program):void{

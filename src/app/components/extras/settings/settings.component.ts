@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SettingSettingsService } from '../../../services/setting-settings.service';
 import { BackgroundSettingsComponent } from './background-settings/background-settings.component';
+import { RightBottomService } from '../../../services/settings/right-bottom.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,9 +10,9 @@ import { BackgroundSettingsComponent } from './background-settings/background-se
   styleUrl: './settings.component.scss'
 })
 export class SettingsComponent {
-  settingSettings: SettingSettingsService;
+  rightBottomSettings: RightBottomService;
 
-  constructor(settingSettings: SettingSettingsService) {
-    this.settingSettings = settingSettings;
+  constructor(rightBottomSettings: RightBottomService) {
+    this.rightBottomSettings = rightBottomSettings;
   }
 }

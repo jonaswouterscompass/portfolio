@@ -1,7 +1,7 @@
 import { Position } from "./position";
 
 export interface Program {
-    image: string, 
+    iconClass: string[], 
     name: string, 
     size: string,
     position?: Position,

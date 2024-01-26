@@ -2,50 +2,71 @@
 @import '../../../../sass/variables.scss';
 
 .footer{
+    padding: 0 10px;
     height: 100%;
     background-color: color(dark);
     color: color(light);
     display: flex;
     align-items: center;
+    gap: 10px;
     justify-content: space-between;
-    .startButton{
-        width: 30px;
+    .icon{
+        cursor: pointer;
+        font-size: 30px;
     }
     .openPages{
+        flex: 1;
+        border-right: 1px solid color(light);
+        border-left: 1px solid color(light);
+        padding: 0 10px;
         display: flex;
-        position: relative;
         gap: 3px;
+        height: 100%;
         .openPage{
-            position: relative;
-            &.isMinimized{
-                background-color: rgba(0, 0, 0, 1) !important;
+            height: 100%;
+            width: 40px;
+            &.minimized{
+                background-color: red;
             }
-            background-color: rgba(200, 200, 255, 0.4);
-            border-bottom: 2px solid lightblue;
-            height: calc(#{$footer_height}px - 2px);
-            width: #{$footer_height}px;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            .icon{
-                width: calc(#{$footer_height}px - 10px);
+            >i {
+                font-size: 30px;
             }
-            .name {
+            .name{
                 position: absolute;
                 bottom: 100%;
                 left: 0;
-                display: none;
                 white-space: nowrap;
+                display: none;
             }
             &:hover{
-                .name{
+                .name {
                     display: block;
-                }
+                }   
             }
         }
     }
-    .settings{
-        cursor: pointer;
-        width: 30px;
+    .end{
+        display: flex;
+        gap: 10px;
+        .notifications{
+            position: relative;
+            .amount{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50rem;
+                background-color: lightgray;
+                color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     }
 }

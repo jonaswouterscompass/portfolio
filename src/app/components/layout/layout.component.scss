@@ -1,5 +1,6 @@
 @import '../../../sass/variables.scss';
 #layout{
+    
     .desktop{
         height: calc(100% - #{$footer-height}px);
     }

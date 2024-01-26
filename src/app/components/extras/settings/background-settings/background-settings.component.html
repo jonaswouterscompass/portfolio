@@ -3,8 +3,9 @@
     <p>ImageBrightnesss: {{backgroundService.brightness}}</p>
     <div class="uploadImage">
         <div class="buttons">
-            <button (click)="changeType('url')">url</button>
-            <button (click)="changeType('file')">file</button>
+            <button [ngClass]="{'selected': type === 'url'}" (click)="changeType('url')">url</button>
+            <button [ngClass]="{'selected': type === 'file'}" (click)="changeType('file')">file</button>
+            <button [ngClass]="{'selected': type === 'default'}" (click)="backgroundService.setDefaultBackground(); changeType('default')">Standard image</button>
         </div>
         <form (submit)="submitForm()">
             <input *ngIf="type==='url'" type="text" [(ngModel)]="imageUrl" placeholder="Enter URL" [ngModelOptions]="{standalone: true}">
@@ -13,7 +14,6 @@
               Please select a valid image file (jpeg, png, jpg).
             </div>
             <button type="submit" [ngClass]="{'disable': !canSubmit()}">Upload</button>
-            <button (click)="backgroundService.setDefaultBackground()">Standard image</button>
         </form>
     </div>
 </div>

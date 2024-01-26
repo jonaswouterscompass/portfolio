@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Program } from '../../../../interfaces/program';
-import { ProgramService } from '../../../../services/program.service';
+import { ProgramService } from '../../../../services/data/program.service';
 import { ExplorerComponent } from '../explorer.component';
 import { IconComponent } from '../../icon/icon.component';
 import { CommonModule } from '@angular/common';
-import { ExplorerSettingsService } from '../../../../services/explorer-settings.service';
+import { ExplorerSettingsService } from '../../../../services/settings/explorer-settings.service';
 
 @Component({
   selector: 'app-projects',

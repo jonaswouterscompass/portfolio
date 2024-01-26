@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NotificationService } from '../../../services/notification.service';
+import { NotificationService } from '../../../services/data/notification.service';
 import { NotificationComponent } from './notification/notification.component';
+import { RightBottomService } from '../../../services/settings/right-bottom.service';
 
 @Component({
   selector: 'app-notifications',
@@ -11,9 +12,11 @@ import { NotificationComponent } from './notification/notification.component';
 })
 export class NotificationsComponent {
   notificationService: NotificationService;
+  rightBottomSettings: RightBottomService;
 
-  constructor(notificationService: NotificationService) {
+  constructor(notificationService: NotificationService, rightBottomSettings: RightBottomService) {
     this.notificationService = notificationService;
+    this.rightBottomSettings = rightBottomSettings;
   }
 
 }
