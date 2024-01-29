@@ -1,0 +1,33 @@
+.languages{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 25px;
+    background-color: lightgreen;
+    .selected{
+        flex: 1;
+        font-weight: 700;
+        padding-left: 10px;
+    }
+    .options{
+        height: 25px;
+        display: flex;
+        align-items: center;
+        width: 0;
+        background-color: white;
+        &.open{
+            width: 120px;
+        }
+        .option {
+            cursor: pointer;
+            width: 40px;
+            text-align: center;
+            &.current{
+                font-style: italic;
+                cursor: initial;
+                width: 40px;
+                color: lightblue;
+            }
+        }
+    }
+}

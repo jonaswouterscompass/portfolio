@@ -57,7 +57,7 @@ export class AppComponent {
   private handleDesktopContextMenu(event: MouseEvent): void {
     this.rcdesktop.setIsOpen(true);
     this.rcfooter.setIsOpen(false);
-    this.rcdesktop.position = this.calculatePosition(event, 150, 65);
+    this.rcdesktop.position = this.calculatePosition(event, 150, 85);
   }
 
   private calculatePosition(event: MouseEvent, width: number, height: number): { left: number; top: number } {

@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { RCDesktopService } from '../../../../services/settings/rightClick/rcdesktop.service';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../../../services/settings/language.service';
+import { RightBottomService } from '../../../../services/settings/right-bottom.service';
 
 @Component({
   selector: 'app-rcdesktop',
@@ -11,9 +13,6 @@ import { CommonModule } from '@angular/common';
 })
 export class RCDesktopComponent {
   @ViewChild("element", {static: true}) element: ElementRef | undefined;
-  rcdesktop: RCDesktopService;
 
-  constructor(rcdesktop: RCDesktopService) {
-    this.rcdesktop = rcdesktop;
-  }
+  constructor(public rcdesktop: RCDesktopService, public rightBottom: RightBottomService) { }
 }

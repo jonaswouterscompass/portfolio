@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BackgroundService } from '../../../../services/data/background.service';
+import { BackgroundService } from '../../../../services/settings/background.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({

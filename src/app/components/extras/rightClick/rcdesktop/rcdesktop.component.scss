@@ -5,5 +5,8 @@
     z-index: 9999999999999999999999;
     .item{
         height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

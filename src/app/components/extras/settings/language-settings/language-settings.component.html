@@ -1,0 +1,20 @@
+<div class="languages">
+    <div class="selected">{{ languageService.currentLanguage }}</div>
+    <div class="options open">
+        <div class="option" 
+            [ngClass]="{'current': languageService.currentLanguage === 'NL'}"
+            (click)="languageService.switchLanguage('NL')">
+            NL
+        </div>
+        <div class="option" 
+            [ngClass]="{'current': languageService.currentLanguage === 'FR'}"
+            (click)="languageService.switchLanguage('FR')">
+            FR
+        </div>
+        <div class="option" 
+            [ngClass]="{'current': languageService.currentLanguage === 'EN'}"
+            (click)="languageService.switchLanguage('EN')">
+            EN
+        </div>
+    </div>
+</div>

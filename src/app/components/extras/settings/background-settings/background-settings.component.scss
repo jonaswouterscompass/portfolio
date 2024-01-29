@@ -1,15 +1,14 @@
 .background {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     .uploadImage{
         display: flex;
         flex-direction: column;
-        gap: 10px;
         .buttons{
             display: flex;
             gap: 10px;
             button{ 
+                margin-top: 10px;
                 flex: 1;
                 &.selected{
                     background-color: black;
@@ -20,6 +19,9 @@
         form{
             display: flex;
             flex-direction: column;
+            input {
+                margin-top: 10px;
+            }
             .error-message {
                 color: red;
             }
