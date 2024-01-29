@@ -1,8 +1,8 @@
 @if (program) {
     <app-explorer [program]="program">
-        <div class="explorerPrograms" [ngClass]="{'small': explorerSettings.isSmallIcons}" content>
+        <div class="explorerPrograms" [ngClass]="{'small': socialsSettings.isSmall}" content>
             @for (socialProgram of programService.getSocialsPrograms(); track $index) {
-                <app-icon [program]="socialProgram" [darkBackground]="false"/>
+                <app-icon [program]="socialProgram" [darkBackground]="false" [isSmall]="socialsSettings.isSmall"/>
             }
         </div>
     </app-explorer>

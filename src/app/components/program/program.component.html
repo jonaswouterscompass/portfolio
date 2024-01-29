@@ -3,6 +3,7 @@
     class="program"
     [ngClass]="{'fullScreen': program.options.isFullscreen}"
     (click)="showOnTop()"
+    *ngIf="program.position && program.position.place && program.position.place.left && program.position.place.top && program.position.size"
     [ngStyle]="{
         'z-index': true ? program.options.zIndex : 0,
         'left': program.position ? program.position.place.left + 'px' : 0,

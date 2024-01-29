@@ -4,7 +4,7 @@ import { ProgramService } from '../../../../services/data/program.service';
 import { ExplorerComponent } from '../explorer.component';
 import { IconComponent } from '../../icon/icon.component';
 import { CommonModule } from '@angular/common';
-import { ExplorerSettingsService } from '../../../../services/settings/explorer-settings.service';
+import { ProjectsSettingsService } from '../../../../services/settings/explorer/projects-settings.service';
 
 @Component({
   selector: 'app-projects',
@@ -16,10 +16,10 @@ import { ExplorerSettingsService } from '../../../../services/settings/explorer-
 export class ProjectsComponent {
   @Input() program: Program | undefined;
   programService: ProgramService;
-  explorerSettings: ExplorerSettingsService;
+  projectsSettings: ProjectsSettingsService;
 
-  constructor(programService: ProgramService, explorerSettings: ExplorerSettingsService) {
+  constructor(programService: ProgramService, projectsSettings: ProjectsSettingsService) {
     this.programService = programService;
-    this.explorerSettings = explorerSettings;
+    this.projectsSettings = projectsSettings;
   }
 }

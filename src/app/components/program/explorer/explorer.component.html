@@ -3,8 +3,8 @@
             <ng-content select="[content]"></ng-content>
         </div>
         <div class="buttons" bottomBar>
-            <button (click)="toggleSmallIcons()">
-                @if (explorerSettings.isSmallIcons) {
+            <button (click)="toggleSmall()">
+                @if (isSmall) {
                     Large
                 } @else {
                     Small

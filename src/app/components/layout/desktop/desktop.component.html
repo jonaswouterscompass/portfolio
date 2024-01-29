@@ -28,4 +28,10 @@
     <div class="notifications">
         <app-notifications/>
     </div>
+    @if(rightClickDesktop.isOpen) {
+        <app-rcdesktop></app-rcdesktop>
+    }
+    @if(rightClickFooter.isOpen) {
+        <app-rcfooter></app-rcfooter>
+    }
 </div>

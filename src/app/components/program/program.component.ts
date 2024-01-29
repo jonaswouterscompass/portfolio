@@ -40,7 +40,7 @@ export class ProgramComponent implements OnInit {
     }
     
     let tempNewPlace: Place = {left: 0, top: 0};
-
+    if(!this.startPlace.left || !this.startPlace.top || !this.startMouse.left || !this.startMouse.top) return
     if (event instanceof MouseEvent){
       tempNewPlace = { 
         left: this.startPlace.left + (-this.startMouse.left + event.clientX), 
@@ -52,7 +52,7 @@ export class ProgramComponent implements OnInit {
         top: this.startPlace.top + (-this.startMouse.top + event.touches[0].clientY)
       }
     }
-
+    if(!tempNewPlace.left || !tempNewPlace.top) return
     const newPlace: Place = {
       left: Math.min(window.innerWidth - 200, Math.max(0, tempNewPlace.left)),
       top: Math.min(window.innerHeight - 200, Math.max(0, tempNewPlace.top))
@@ -75,7 +75,7 @@ export class ProgramComponent implements OnInit {
     if (event instanceof MouseEvent) this.startMouse = {left: event.clientX, top: event.clientY}
     if (event instanceof TouchEvent) this.startMouse = {left: event.touches[0].clientX, top: event.touches[0].clientY}
     
-    this.startPlace = {left: this.program.position.place.left, top: this.program.position.place.top};
+    this.startPlace = {left: this.program.position.place?.left, top: this.program.position.place?.top};
     this.isDragging = true;
   }
 
