@@ -85,9 +85,9 @@ export class ProgramService {
       options: {
         isFocussed: false,
         isFullscreen: false,
-        isMinimized: false,
+        isMinimized: true,
         isTop: false,
-        isOpen: false,
+        isOpen: true,
         isShortcut: false,
         type: "about-me"
       }
