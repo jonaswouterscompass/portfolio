@@ -17,14 +17,14 @@ export class ProgramComponent implements OnInit {
   startPlace: Place | undefined;
   windowSize: Size | undefined;
 
-  initialPosition: Position = { place: { top: 50, left: 50 }, size: { width: 300, height: 300 } }
+  initialPosition: Position = { 
+    place: { top: 50, left: 50 }, 
+    size: { width: 300, height: 300 }
+  }
 
   isDragging: boolean = false;
-  
-  programService: ProgramService;
-  constructor(programService: ProgramService){
-    this.programService = programService;
-  }
+
+  constructor(private programService: ProgramService){ }
 
   ngOnInit(): void {
     if(this.program && !this.program.position) this.program.position = this.initialPosition;
@@ -35,28 +35,23 @@ export class ProgramComponent implements OnInit {
   @HostListener('document:mousemove', ['$event'])
   @HostListener('document:touchmove', ['$event'])
   onMouseMove(event: MouseEvent | TouchEvent) {
-    if(!this.isDragging || !this.program?.position || !this.startPlace) {
-      return;
+    if(!this.isDragging || !this.program?.position || !this.startPlace) return;
+    if (!(event instanceof MouseEvent) && !(event instanceof TouchEvent)) return;
+    const clientX = event instanceof MouseEvent ? event.clientX : event.touches[0].clientX;
+    const clientY = event instanceof MouseEvent ? event.clientY : event.touches[0].clientY;
+
+    const tempNewPlace: Place = {
+      left: this.startPlace.left + (-this.startMouse.left + clientX),
+      top: this.startPlace.top + (-this.startMouse.top + clientY)
     }
-    
-    let tempNewPlace: Place = {left: 0, top: 0};
-    if(!this.startPlace.left || !this.startPlace.top || !this.startMouse.left || !this.startMouse.top) return
-    if (event instanceof MouseEvent){
-      tempNewPlace = { 
-        left: this.startPlace.left + (-this.startMouse.left + event.clientX), 
-        top: this.startPlace.top + (-this.startMouse.top + event.clientY) 
-      }
-    } else if (event instanceof TouchEvent){
-      tempNewPlace = { 
-        left: this.startPlace.left + (-this.startMouse.left + event.touches[0].clientX), 
-        top: this.startPlace.top + (-this.startMouse.top + event.touches[0].clientY)
-      }
-    }
-    if(!tempNewPlace.left || !tempNewPlace.top) return
+
     const newPlace: Place = {
       left: Math.min(window.innerWidth - 200, Math.max(0, tempNewPlace.left)),
       top: Math.min(window.innerHeight - 200, Math.max(0, tempNewPlace.top))
     }
+    
+    if(newPlace.left < 1) newPlace.left = 1;
+    if(newPlace.top < 1) newPlace.top = 1;
 
     this.program.position.place = newPlace;
   }
@@ -69,7 +64,7 @@ export class ProgramComponent implements OnInit {
   }
 
   onMouseDown(event: MouseEvent | TouchEvent) {
-    if(!this.program?.position) return
+    if(!this.program?.position || this.program.options.isFullscreen) return
 
     this.program.options.zIndex = ++this.programService.zIndex
     if (event instanceof MouseEvent) this.startMouse = {left: event.clientX, top: event.clientY}
@@ -83,7 +78,7 @@ export class ProgramComponent implements OnInit {
     if(!this.program?.position) return
     this.program.options.isFullscreen = !this.program.options.isFullscreen
     if(this.program.options.isFullscreen){
-      this.program.position = {place: {left:0, top:0}, size: {width: window.innerWidth, height: window.innerHeight}}
+      this.program.position = {place: {left:1, top:1}, size: {width: window.innerWidth - 1, height: window.innerHeight - 1}}
     } else {
       this.program.position = this.initialPosition;
     }

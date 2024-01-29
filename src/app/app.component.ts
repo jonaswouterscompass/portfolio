@@ -13,50 +13,60 @@ import { RCFooterService } from './services/settings/rightClick/rcfooter.service
 })
 export class AppComponent {
   title = 'portfolio';
-  rcdesktop: RCDesktopService;
-  rcfooter: RCFooterService;
 
-  constructor(rcdesktop: RCDesktopService, rcfooter: RCFooterService) {
-    this.rcdesktop = rcdesktop;
-    this.rcfooter = rcfooter;
-  }
+  constructor(private rcdesktop: RCDesktopService, private rcfooter: RCFooterService) {}
 
   @HostListener('document:contextmenu', ['$event'])
   onContextMenu(event: MouseEvent): void {
     const clickedElement = event.target as HTMLElement;
-    if (!this.hasOpenPageClass(clickedElement)) {
-      this.rcdesktop.setIsOpen(true)
-      this.rcfooter.setIsOpen(false)
-      this.rcdesktop.position = {left: event.clientX, top: event.clientY}
-      if(this.rcdesktop.position.left + 150 > window.innerWidth){
-        this.rcdesktop.position.left = window.innerWidth - 150
-      }
-      if(this.rcdesktop.position.top + 20 * 1 > window.innerHeight - 45){
-        this.rcdesktop.position.top = window.innerHeight - 45 - 20 * 1
-      } 
+    
+    if (this.hasClass(clickedElement, 'openPage')) this.handleFooterIconContextMenu(event);
+    else if (this.hasClass(clickedElement, 'program')) this.handleProgramContextMenu(event);
+    else if (this.hasClass(clickedElement, 'footer')) this.handleFooterContextMenu(event);
+    else this.handleDesktopContextMenu(event);
 
-    } else {
-      this.rcfooter.setIsOpen(true)
-      this.rcdesktop.setIsOpen(false)
-      this.rcfooter.position = {left: event.clientX, top: event.clientY}
-      if(this.rcfooter.position.left + 150 > window.innerWidth){
-        this.rcfooter.position.left = window.innerWidth - 150
-      }
-      if(this.rcfooter.position.top + 20 * 1 > window.innerHeight){
-        this.rcfooter.position.top = window.innerHeight - 20 * 1
-      } 
-
-    }
     event.preventDefault();
   }
 
   @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
+  onDocumentClick(): void {
     if(this.rcdesktop.isOpen) this.rcdesktop.setIsOpen(false)
     if(this.rcfooter.isOpen) this.rcfooter.setIsOpen(false)
   }
 
-  private hasOpenPageClass(element: HTMLElement): boolean {
-    return element.classList.contains('openPage') || element.closest('.openPage') !== null;
+  private hasClass(element: HTMLElement, className: string): boolean {
+    return element.classList.contains(className) || element.closest(`.${className}`) !== null;
+  }
+
+  private handleFooterIconContextMenu(event: MouseEvent): void {
+    this.rcfooter.setIsOpen(true);
+    this.rcdesktop.setIsOpen(false);
+    this.rcfooter.position = this.calculatePosition(event, 150, 20);
+  }
+  
+  private handleProgramContextMenu(event: MouseEvent) {
+    this.rcfooter.setIsOpen(false);
+    this.rcdesktop.setIsOpen(false);
+  }
+  
+  private handleFooterContextMenu(event: MouseEvent) {
+    this.rcfooter.setIsOpen(false);
+    this.rcdesktop.setIsOpen(false);
+  }
+
+  private handleDesktopContextMenu(event: MouseEvent): void {
+    this.rcdesktop.setIsOpen(true);
+    this.rcfooter.setIsOpen(false);
+    this.rcdesktop.position = this.calculatePosition(event, 150, 65);
+  }
+
+  private calculatePosition(event: MouseEvent, width: number, height: number): { left: number; top: number } {
+    let left = event.clientX;
+    let top = event.clientY;
+
+    left = Math.min(window.innerWidth - width, Math.max(0, left));
+    top = Math.min(window.innerHeight - height, Math.max(0, top));
+
+    return { left, top };
   }
 }
