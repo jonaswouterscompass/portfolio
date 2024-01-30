@@ -9,6 +9,7 @@ export class ProgramService {
   programs: Program[] = [
     {
       iconClass: ['fa-solid', 'fa-globe'],
+      type: 'internet',
       name: 'about me',
       size: '15kb',
       options: {
@@ -18,11 +19,12 @@ export class ProgramService {
         isTop: false,
         isOpen: true,
         isShortcut: true, 
-        type: 'desktop'
+        place: 'desktop'
       }
     },
     {
       iconClass: ['fa-solid', 'fa-folder'],
+      type: 'explorer',
       name: 'socials',
       size: '15kb', 
       options: {
@@ -32,11 +34,12 @@ export class ProgramService {
         isTop: false,
         isOpen: true,
         isShortcut: false, 
-        type: 'desktop'
+        place: 'desktop'
       }
     },
     {
       iconClass: ['fa-solid', 'fa-folder'],
+      type: 'explorer',
       name: 'projects',
       size: '15kb', 
       options: {
@@ -46,11 +49,12 @@ export class ProgramService {
         isTop: false,
         isOpen: true,
         isShortcut: false, 
-        type: 'desktop'
+        place: 'desktop'
       }
     },
     {
       iconClass: ['fa-solid', 'fa-envelope'],
+      type: 'mail',
       name: 'contact',
       size: '15kb', 
       options: {
@@ -60,11 +64,12 @@ export class ProgramService {
         isTop: false,
         isOpen: true,
         isShortcut: false, 
-        type: 'desktop'
+        place: 'desktop'
       }
     },
     {
       iconClass: ['fa-solid', 'fa-globe'],
+      type: 'internet',
       name: 'linkedIn',
       size: '0',
       options: {
@@ -75,11 +80,12 @@ export class ProgramService {
         isOpen: true,
         isShortcut: true,
         link: 'https://www.linkedin.com/in/jonas1wouters/',
-        type: "socials"
+        place: "socials"
       }
     },
     {
       iconClass: ['fa-solid', 'fa-font'],
+      type: 'text',
       name: 'My life',
       size: '55kb',
       options: {
@@ -89,7 +95,7 @@ export class ProgramService {
         isTop: false,
         isOpen: true,
         isShortcut: false,
-        type: "about-me"
+        place: "about-me"
       }
     }
   ]
@@ -100,23 +106,45 @@ export class ProgramService {
   }
 
   getDesktopPrograms(): Program[] {
-    const desktopPrograms = this.programs.filter(program => program.options.type === "desktop");
+    const desktopPrograms = this.programs.filter(program => program.options.place === "desktop");
     return desktopPrograms;
   }
 
   getSocialsPrograms(): Program[] {
-    const socialsPrograms = this.programs.filter(program => program.options.type === "socials");
+    const socialsPrograms = this.programs.filter(program => program.options.place === "socials");
     return socialsPrograms;
   }
 
   getAboutMePrograms(): Program[] {
-    const aboutMePrograms = this.programs.filter(program => program.options.type === "about-me");
+    const aboutMePrograms = this.programs.filter(program => program.options.place === "about-me");
     return aboutMePrograms;
   }
 
   getOpenPrograms(): Program[] {
     const openPrograms = this.programs.filter(program => program.options.isOpen === true);
     return openPrograms;
+  }
+
+  getProgramsByType(): { type: string; programs: Program[] }[] {
+    const programsByTypeArray: { type: string; programs: Program[] }[] = [];
+
+    this.programs.forEach((program) => {
+      const { type } = program;
+      const existingTypeObject = programsByTypeArray.find((obj) => obj.type === type);
+
+      if (existingTypeObject) {
+        existingTypeObject.programs.push(program);
+      } else {
+        programsByTypeArray.push({ type, programs: [program] });
+      }
+    });
+
+    return programsByTypeArray;
+  }
+  
+
+  open(program: Program): void {
+    if(!program.options.isOpen) program.options.isOpen = true;
   }
 
   /* Show program on top */

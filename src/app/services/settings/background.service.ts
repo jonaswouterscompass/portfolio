@@ -49,7 +49,6 @@ export class BackgroundService {
       this.isValid = true;
       this.background = imagePath;
       this.calculateImageBrightness(img);
-      console.log(this.brightness)
     }
   }
 

@@ -2,6 +2,7 @@ import { Position } from "./position";
 
 export interface Program {
     iconClass: string[], 
+    type: "internet" | "explorer" | "mail" | "text",
     name: string, 
     size: string,
     position?: Position,
@@ -17,6 +18,6 @@ interface ProgramOptions {
     isTop: boolean,
     isShortcut?: boolean,
     link?: string,
-    type: "desktop" | "socials" | "about-me" 
+    place: "desktop" | "socials" | "about-me" 
 }
 
