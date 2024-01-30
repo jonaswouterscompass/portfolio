@@ -1,9 +1,8 @@
-@if (program) {
+@if (program && program.position && program.position.place && program.position.place.left && program.position.place.top && program.position.size) {
     <div #programma 
     class="program"
     [ngClass]="{'fullScreen': program.options.isFullscreen}"
     (click)="showOnTop()"
-    *ngIf="program.position && program.position.place && program.position.place.left && program.position.place.top && program.position.size"
     [ngStyle]="{
         'z-index': true ? program.options.zIndex : 0,
         'left': program.position ? program.position.place.left + 'px' : 0,
@@ -12,13 +11,14 @@
         'height': program.position ? program.position.size.height + 'px' : 0,
         'max-width': program.position && windowSize ? windowSize.width - program.position.place.left + 'px' : 0,
         'max-height': program.position && windowSize ? windowSize.height - program.position.place.top - 45 + 'px' : 0
-        }">
+        }"
+        *transloco="let t">
         <div 
         class="topBar"
         (mousedown)="onMouseDown($event)"
         (touchstart)="onMouseDown($event)"
         (dblclick)="toggleFullscreen()">
-            <div class="name">{{ program.name }}</div>
+            <div class="name">{{ t(program.name) }}</div>
             <div class="buttons">
                 <button (click)="minimize()"><i class="fa-solid fa-minus"></i></button>
                 <button (click)="toggleFullscreen()">

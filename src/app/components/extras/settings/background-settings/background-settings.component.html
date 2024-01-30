@@ -1,19 +1,19 @@
-<div class="background">
-    <h2>background settings</h2>
-    <p>ImageBrightnesss: {{backgroundService.brightness}}</p>
+<div class="background" *transloco="let t">
+    <h2>{{ t("background settings")}}</h2>
+    <p>{{ t("image brightness") }}: {{backgroundService.brightness}}</p>
     <div class="uploadImage">
         <div class="buttons">
-            <button [ngClass]="{'selected': type === 'url'}" (click)="changeType('url')">url</button>
-            <button [ngClass]="{'selected': type === 'file'}" (click)="changeType('file')">file</button>
-            <button [ngClass]="{'selected': type === 'default'}" (click)="backgroundService.setDefaultBackground(); changeType('default')">Standard image</button>
+            <button [ngClass]="{'selected': type === 'url'}" (click)="changeType('url')">{{ t("url") }}</button>
+            <button [ngClass]="{'selected': type === 'file'}" (click)="changeType('file')">{{ t("file") }}</button>
+            <button [ngClass]="{'selected': type === 'default'}" (click)="backgroundService.setDefaultBackground(); changeType('default')">{{ t("standard image") }}</button>
         </div>
         <form (submit)="submitForm()">
             <input *ngIf="type==='url'" type="text" [(ngModel)]="imageUrl" placeholder="Enter URL" [ngModelOptions]="{standalone: true}">
             <input *ngIf="type==='file'" type="file" (change)="onFileSelected($event)">
             <div *ngIf="type==='file' && !isImageSelected" class="error-message">
-              Please select a valid image file (jpeg, png, jpg).
+              {{ t('error invalid input for background image')}}
             </div>
-            <button type="submit" [ngClass]="{'disable': !canSubmit()}">Upload</button>
+            <button type="submit" [ngClass]="{'disable': !canSubmit()}">{{ t("upload") }}</button>
         </form>
     </div>
 </div>

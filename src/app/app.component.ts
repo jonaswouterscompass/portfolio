@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RCDesktopService } from './services/settings/rightClick/rcdesktop.service';
 import { RCFooterService } from './services/settings/rightClick/rcfooter.service';
+import { LanguageService } from './services/settings/language.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,10 @@ import { RCFooterService } from './services/settings/rightClick/rcfooter.service
 export class AppComponent {
   title = 'portfolio';
 
-  constructor(private rcdesktop: RCDesktopService, private rcfooter: RCFooterService) {}
+  constructor(private rcdesktop: RCDesktopService, private rcfooter: RCFooterService, private languageService: LanguageService) {
+    const storedLanguage: string | null = localStorage.getItem('userLanguage')
+    this.languageService.switchLanguage(storedLanguage || 'nl');
+  }
 
   @HostListener('document:contextmenu', ['$event'])
   onContextMenu(event: MouseEvent): void {

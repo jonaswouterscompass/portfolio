@@ -1,0 +1,17 @@
+{
+    "about me": "À propos de moi",
+    "socials": "Réseaux sociaux",
+    "projects": "Projets",
+    "contact": "Contact",
+    "linkedIn": "LinkedIn",
+    "My life": "Ma vie",
+    "Open settings": "Ouvrir les paramètres",
+    "background settings": "Paramètres de fond",
+    "image brightness": "Luminosité de l'image",
+    "url": "URL",
+    "file": "Fichier",
+    "standard image": "Image standard",
+    "upload": "Télécharger",
+    "language settings": "Paramètres de langue",
+    "error invalid input for background image": "Veuillez sélectionner un fichier image valide (jpeg, png, jpg)."
+}

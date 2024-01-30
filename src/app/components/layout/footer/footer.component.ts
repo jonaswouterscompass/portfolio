@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Program } from '../../../interfaces/program';
 import { NotificationService } from '../../../services/data/notification.service';
 import { RightBottomService } from '../../../services/settings/right-bottom.service';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

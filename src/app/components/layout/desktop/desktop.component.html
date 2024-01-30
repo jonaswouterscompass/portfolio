@@ -5,7 +5,7 @@
     </div>
     <div class="desktopIcons">
         @for (program of programService.getDesktopPrograms(); track $index) {
-                <app-icon [isExplorer]="false" [program]="program" [darkBackground]="backgroundService.brightness <= 125"></app-icon>
+                <app-icon [isExplorer]="false" [program]="program" [darkBackground]="backgroundService.brightness <= 50"></app-icon>
         }
     </div>
     @if (programService && programService.getOpenPrograms().length > 0) {

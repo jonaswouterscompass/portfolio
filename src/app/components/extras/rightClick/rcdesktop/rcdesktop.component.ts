@@ -1,13 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RCDesktopService } from '../../../../services/settings/rightClick/rcdesktop.service';
 import { CommonModule } from '@angular/common';
-import { LanguageService } from '../../../../services/settings/language.service';
 import { RightBottomService } from '../../../../services/settings/right-bottom.service';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-rcdesktop',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './rcdesktop.component.html',
   styleUrl: './rcdesktop.component.scss'
 })

@@ -3,11 +3,12 @@ import { Place, Position, Size } from '../../interfaces/position';
 import { CommonModule } from '@angular/common';
 import { ProgramService } from '../../services/data/program.service';
 import { Program } from '../../interfaces/program';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-program',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './program.component.html',
   styleUrl: './program.component.scss'
 })

@@ -12,9 +12,9 @@ export class ProgramService {
       name: 'about me',
       size: '15kb',
       options: {
-        isFocussed: false, 
+        isFocussed: false,
         isFullscreen: false,
-        isMinimized: true,
+        isMinimized: false,
         isTop: false,
         isOpen: true,
         isShortcut: true, 
@@ -26,7 +26,7 @@ export class ProgramService {
       name: 'socials',
       size: '15kb', 
       options: {
-        isFocussed: false, 
+        isFocussed: false,
         isFullscreen: false,
         isMinimized: false,
         isTop: false,
@@ -40,7 +40,7 @@ export class ProgramService {
       name: 'projects',
       size: '15kb', 
       options: {
-        isFocussed: false, 
+        isFocussed: false,
         isFullscreen: false,
         isMinimized: false,
         isTop: false,
@@ -54,9 +54,9 @@ export class ProgramService {
       name: 'contact',
       size: '15kb', 
       options: {
-        isFocussed: false, 
+        isFocussed: false,
         isFullscreen: false,
-        isMinimized: true,
+        isMinimized: false,
         isTop: false,
         isOpen: true,
         isShortcut: false, 
@@ -70,7 +70,7 @@ export class ProgramService {
       options: {
         isFocussed: false,
         isFullscreen: false,
-        isMinimized: true,
+        isMinimized: false,
         isTop: false,
         isOpen: true,
         isShortcut: true,
@@ -85,7 +85,7 @@ export class ProgramService {
       options: {
         isFocussed: false,
         isFullscreen: false,
-        isMinimized: true,
+        isMinimized: false,
         isTop: false,
         isOpen: true,
         isShortcut: false,
