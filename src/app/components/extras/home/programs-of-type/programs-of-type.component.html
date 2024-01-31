@@ -1,0 +1,7 @@
+<div class="programs">
+    @for (program of type?.programs; track $index) {
+        <div class="program" (click)="programService.open(program)">
+            {{program.name}}
+        </div>
+    }
+</div>

@@ -1,0 +1,16 @@
+.types{
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    i{
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        padding: 5px;
+        &:hover{
+            background-color: rgba(120, 120, 255, 0.3);
+        }
+    }
+}

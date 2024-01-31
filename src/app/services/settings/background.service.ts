@@ -42,16 +42,13 @@ export class BackgroundService {
   
   loadBackground(imagePath: string): void {
     const img = new Image();
+    img.crossOrigin = "Anonymous";
     img.src = imagePath;
 
     img.onload = () => {
       this.isValid = true;
       this.background = imagePath;
       this.calculateImageBrightness(img);
-    }
-
-    img.onerror = () => {
-      this.setDefaultBackground()
     }
   }
 

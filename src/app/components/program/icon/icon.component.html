@@ -1,12 +1,12 @@
 @if (program) {
-    <div class="program" [ngClass]="{'small': isSmall && isExplorer, 'darkBackground': darkBackground}">
+    <div class="program" [ngClass]="{'small': isSmall && isExplorer, 'darkBackground': darkBackground}" *transloco="let t">
         <div class="img">
             <i [ngClass]="program.iconClass"></i>
             @if (program.options.isShortcut) {
                 <img class="before" src="../../../../assets/shortcut.jpg" alt="shortcut">
             }
         </div>
-        <div class="name">{{program.name}}</div>
+        <div class="name">{{ t(program.name) }}</div>
         <div class="size">{{program.size}}</div>
     </div>
 }
