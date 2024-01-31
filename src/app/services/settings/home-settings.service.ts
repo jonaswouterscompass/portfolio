@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class HomeSettingsService {
-  isOpen: boolean = true;
+  isOpen: boolean = false;
   constructor() { }
 }
