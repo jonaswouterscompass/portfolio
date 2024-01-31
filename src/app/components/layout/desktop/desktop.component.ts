@@ -11,6 +11,7 @@ import { RCDesktopComponent } from '../../extras/rightClick/rcdesktop/rcdesktop.
 import { RCFooterComponent } from '../../extras/rightClick/rcfooter/rcfooter.component';
 import { RCFooterService } from '../../../services/settings/rightClick/rcfooter.service';
 import { HomeComponent } from '../../extras/home/home.component';
+import { HomeSettingsService } from '../../../services/settings/home-settings.service';
 
 @Component({
   selector: 'app-desktop',
@@ -24,7 +25,8 @@ export class DesktopComponent {
     public programService: ProgramService,
     public backgroundService: BackgroundService, 
     public rightClickDesktop: RCDesktopService, 
-    public rightClickFooter: RCFooterService
+    public rightClickFooter: RCFooterService,
+    public homeSettings: HomeSettingsService
     ){
     backgroundService.getBackground();
   }

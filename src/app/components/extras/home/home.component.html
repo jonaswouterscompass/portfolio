@@ -1,12 +1,5 @@
 <div class="programTypes">
-    @for (programType of programService.getProgramsByType(); track $index) {
-        <div class="type">
-            <i [ngClass]="programType.programs[0].iconClass"></i>
-            <div class="programs">
-                @for (program of programType.programs; track $index) {
-                    <div class="program" (click)="programService.open(program)">{{ program.name }}</div>
-                }
-            </div>
-        </div>
-    }
+    <app-types [types]="programService.getProgramsByType()" (selectProgramType)="setNewProgramType($event)" />
+    <app-programs-of-type [type]="programService.getProgramsByType(selectedProgram)[0]"/>
+
 </div>

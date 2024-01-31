@@ -125,24 +125,38 @@ export class ProgramService {
     return openPrograms;
   }
 
-  getProgramsByType(): { type: string; programs: Program[] }[] {
+  getProgramsByType(selectedType?: string): { type: string; programs: Program[] }[] {
     const programsByTypeArray: { type: string; programs: Program[] }[] = [];
-
+  
     this.programs.forEach((program) => {
       const { type } = program;
-      const existingTypeObject = programsByTypeArray.find((obj) => obj.type === type);
-
-      if (existingTypeObject) {
-        existingTypeObject.programs.push(program);
+  
+      if (selectedType) {
+        // If a specific type is provided, only consider programs of that type
+        if (type === selectedType) {
+          const existingTypeObject = programsByTypeArray.find((obj) => obj.type === type);
+  
+          if (existingTypeObject) {
+            existingTypeObject.programs.push(program);
+          } else {
+            programsByTypeArray.push({ type, programs: [program] });
+          }
+        }
       } else {
-        programsByTypeArray.push({ type, programs: [program] });
+        // If no specific type is provided, include all types with their respective programs
+        const existingTypeObject = programsByTypeArray.find((obj) => obj.type === type);
+  
+        if (existingTypeObject) {
+          existingTypeObject.programs.push(program);
+        } else {
+          programsByTypeArray.push({ type, programs: [program] });
+        }
       }
     });
-
+  
     return programsByTypeArray;
   }
   
-
   open(program: Program): void {
     if(!program.options.isOpen) program.options.isOpen = true;
   }

@@ -9,9 +9,9 @@
         }
     </div>
     <div class="end">
-        <i class="fa-solid fa-gears icon" (click)="rightBottomSettings.setSettingsOpen(!rightBottomSettings.settingsOpen)"></i>
+        <i class="fa-solid fa-gears icon settings"></i>
         @if (notivicationService.notifications.length > 0) {
-            <div class="notifications" (click)="rightBottomSettings.setNotificationOpen(!rightBottomSettings.notificationOpen)">
+            <div class="notifications">
                 <div class="amount">{{ notivicationService.notifications.length }}</div>
                 <i class="fa-solid fa-bell icon"></i>
             </div>

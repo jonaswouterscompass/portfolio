@@ -34,8 +34,10 @@
     @if(rightClickFooter.isOpen) {
         <app-rcfooter></app-rcfooter>
     }
-    <div class="home">
-        <app-home></app-home>
-    </div>
+    @if (homeSettings.isOpen) {
+        <div class="home">
+            <app-home></app-home>
+        </div>
+    }
 
 </div>

@@ -1,0 +1,5 @@
+<div class="types">
+    @for (programType of types; track $index) {
+        <i [ngClass]="programType.programs[0].iconClass" (click)="setNewProgramType(programType.type)"></i>
+    }
+</div>
