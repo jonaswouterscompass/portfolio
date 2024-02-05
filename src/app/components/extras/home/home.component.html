@@ -1,5 +1,7 @@
-<div class="programTypes">
-    <app-types [types]="programService.getProgramsByType()" (selectProgramType)="setNewProgramType($event)" />
-    <app-programs-of-type [type]="programService.getProgramsByType(selectedProgram)[0]"/>
-
-</div>
+@if (clickService.lCHomeIsOpen) {
+    <div class="programTypes">
+        <app-types [types]="programService.getProgramsByType()" (selectProgramType)="setNewProgramType($event)" />
+        <app-programs-of-type [type]="programService.getProgramsByType(selectedProgram)[0]"/>
+    
+    </div>
+}

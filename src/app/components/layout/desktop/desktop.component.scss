@@ -36,19 +36,15 @@
         align-items: start;
         gap: 5px;
     }
-    .settings, .notifications{
+    .settings, .notifications, .home{
+        z-index: 9999999999999999999;
         position: absolute;
         bottom: 10px;
+    }
+    .settings, .notifications{
         right: 10px;
     }
     .home{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: white;
-        border: 2px solid black;
-        padding: 10px;
-        border-radius: 0 10px 0 0;
-        z-index: 9999999999999999999;
+        left: 10px;
     }
 }

@@ -28,16 +28,14 @@
     <div class="notifications">
         <app-notifications/>
     </div>
+    <div class="home">
+        <app-home></app-home>
+    </div>
     @if(clickService.rCDesktopIsOpen) {
         <app-rcdesktop></app-rcdesktop>
     }
     @if(clickService.rCFooterIsOpen) {
         <app-rcfooter></app-rcfooter>
-    }
-    @if (clickService.lCHomeIsOpen) {
-        <div class="home">
-            <app-home></app-home>
-        </div>
     }
 
 </div>
