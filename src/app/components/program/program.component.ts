@@ -18,10 +18,7 @@ export class ProgramComponent implements OnInit {
   startPlace: Place | undefined;
   windowSize: Size | undefined;
 
-  initialPosition: Position = { 
-    place: { top: 50, left: 50 }, 
-    size: { width: 300, height: 300 }
-  }
+  initialPosition: Position = this.programService.generateRandomInitialPosition();
 
   isDragging: boolean = false;
 
@@ -79,7 +76,7 @@ export class ProgramComponent implements OnInit {
     if(!this.program?.position) return
     this.program.options.isFullscreen = !this.program.options.isFullscreen
     if(this.program.options.isFullscreen){
-      this.program.position = {place: {left:1, top:1}, size: {width: window.innerWidth - 1, height: window.innerHeight - 1}}
+      this.program.position = {place: {left:0.1, top:0.1}, size: {width: window.innerWidth - 0.1, height: window.innerHeight - 0.1}}
     } else {
       this.program.position = this.initialPosition;
     }

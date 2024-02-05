@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Program } from '../../interfaces/program';
+import { Position } from '../../interfaces/position';
 
 @Injectable({
   providedIn: 'root'
@@ -162,5 +163,15 @@ export class ProgramService {
   }
 
   /* Show program on top */
-  public zIndex: number = 10000000;
+  public zIndex: number = 10000000; 
+  
+  generateRandomInitialPosition(): Position {
+    const left = Math.random() * (window.innerWidth - 300); // Adjust 300 based on your requirements
+    const top = Math.random() * (window.innerHeight - 300); // Adjust 300 based on your requirements
+
+    return {
+      place: { left, top },
+      size: { width: 300, height: 300 }, // You might want to adjust this size too
+    };
+  }
 }
