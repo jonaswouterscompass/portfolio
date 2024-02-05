@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LanguageService } from './services/settings/language/language.service';
 import { CIsOpenService } from './services/settings/click/c-is-open.service';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-root',
@@ -33,9 +34,6 @@ export class AppComponent {
   /* All leftclick menus */
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    const clickedElement = event.target as HTMLElement;
-    
-    this.clickService.closeAllRC();
-    this.clickService.openCorrectLC(clickedElement);
+    this.clickService.openCorrectLC(event);
   }
 }

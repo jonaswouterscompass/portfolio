@@ -42,7 +42,11 @@ export class CIsOpenService {
     this.lCHomeIsOpen = false;
   }
 
-  openCorrectLC(element: HTMLElement) {
+  openCorrectLC(event: MouseEvent) {
+    const element = event.target as HTMLElement;
+    
+    this.closeAllRC();
+
     if(this.hasClassHelper.hasClass(element, 'footer')) {
       if(this.hasClassHelper.hasClass(element, 'start')) this.toggleLCStart();
       else if(this.hasClassHelper.hasClass(element, 'settings')) this.toggleLCSettings();
