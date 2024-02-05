@@ -9,8 +9,7 @@ import { NotificationsComponent } from '../../extras/notifications/notifications
 import { RCDesktopComponent } from '../../extras/rightClick/rcdesktop/rcdesktop.component';
 import { RCFooterComponent } from '../../extras/rightClick/rcfooter/rcfooter.component';
 import { HomeComponent } from '../../extras/home/home.component';
-import { RcIsOpenService } from '../../../services/settings/rightClick/rc-is-open.service';
-import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open.service';
+import { CIsOpenService } from '../../../services/settings/click/c-is-open.service';
 
 @Component({
   selector: 'app-desktop',
@@ -23,8 +22,7 @@ export class DesktopComponent {
   constructor(
     public programService: ProgramService,
     public backgroundService: BackgroundService, 
-    public rcIsOpen: RcIsOpenService,
-    public lcIsOpen: LcIsOpenService,
+    public clickService: CIsOpenService
     ){
     backgroundService.getBackground();
   }

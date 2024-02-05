@@ -1,4 +1,4 @@
-@if (lcIsOpen.notificationIsOpen && notificationService.notifications.length > 0) {
+@if (clickService.lCNotificationIsOpen && notificationService.notifications.length > 0) {
     <div class="notifications">
         @for (notification of notificationService.notifications; track $index) {
             <app-notification [notification]="notification"></app-notification>

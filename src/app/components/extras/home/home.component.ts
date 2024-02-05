@@ -3,7 +3,6 @@ import { ProgramService } from '../../../services/data/program.service';
 import { CommonModule } from '@angular/common';
 import { TypesComponent } from './types/types.component';
 import { ProgramsOfTypeComponent } from './programs-of-type/programs-of-type.component';
-import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +14,7 @@ import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open
 export class HomeComponent {
   selectedProgram: string | undefined;
 
-  constructor(public programService: ProgramService, public lcIsOpen: LcIsOpenService) {}
+  constructor(public programService: ProgramService) {}
 
   setNewProgramType(type: string){
     this.selectedProgram = type;

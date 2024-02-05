@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BackgroundSettingsComponent } from './background-settings/background-settings.component';
 import { LanguageSettingsComponent } from './language-settings/language-settings.component';
-import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open.service';
+import { CIsOpenService } from '../../../services/settings/click/c-is-open.service';
 
 @Component({
   selector: 'app-settings',
@@ -12,6 +12,6 @@ import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open
 })
 export class SettingsComponent {
 
-  constructor(public lcIsopen: LcIsOpenService) {
+  constructor(public clickService: CIsOpenService) {
   }
 }

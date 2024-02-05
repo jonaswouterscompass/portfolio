@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NotificationService } from '../../../services/data/notification.service';
 import { NotificationComponent } from './notification/notification.component';
-import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open.service';
+import { CIsOpenService } from '../../../services/settings/click/c-is-open.service';
 
 @Component({
   selector: 'app-notifications',
@@ -11,7 +11,7 @@ import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open
   styleUrl: './notifications.component.scss'
 })
 export class NotificationsComponent {
-  constructor(public notificationService: NotificationService, public lcIsOpen: LcIsOpenService) {
+  constructor(public notificationService: NotificationService, public clickService: CIsOpenService) {
   }
 
 }

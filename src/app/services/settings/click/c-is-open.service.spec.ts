@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LcIsOpenService } from './lc-is-open.service';
+import { CIsOpenService } from './c-is-open.service';
 
-describe('LcIsOpenService', () => {
-  let service: LcIsOpenService;
+describe('CIsOpenService', () => {
+  let service: CIsOpenService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LcIsOpenService);
+    service = TestBed.inject(CIsOpenService);
   });
 
   it('should be created', () => {
