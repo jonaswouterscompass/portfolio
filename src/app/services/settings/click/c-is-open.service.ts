@@ -17,6 +17,7 @@ export class CIsOpenService {
 
   constructor(private hasClassHelper: HasClassService){}
 
+  /* Left click */
   toggleLCNotifications(): void {
     this.lCNotificationIsOpen = !this.lCNotificationIsOpen;
     this.lCSettingsIsOpen = false;
@@ -44,8 +45,9 @@ export class CIsOpenService {
   openCorrectLC(element: HTMLElement) {
     if(this.hasClassHelper.hasClass(element, 'footer')) {
       if(this.hasClassHelper.hasClass(element, 'start')) this.toggleLCStart();
-      if(this.hasClassHelper.hasClass(element, 'settings')) this.toggleLCSettings();
-      if(this.hasClassHelper.hasClass(element, 'notifications')) this.toggleLCNotifications();
+      else if(this.hasClassHelper.hasClass(element, 'settings')) this.toggleLCSettings();
+      else if(this.hasClassHelper.hasClass(element, 'notifications')) this.toggleLCNotifications();
+      else this.closeAllLC();
     } else {
       if(
         !this.hasClassHelper.hasClass(element, 'home') && 
@@ -58,6 +60,7 @@ export class CIsOpenService {
   }
 
 
+  /* Right click */
   openRCFooter(): void {
     this.rCFooterIsOpen = true;
     this.rCDesktopIsOpen = false;
