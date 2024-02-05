@@ -1,9 +1,14 @@
 @if (notification) {
     <div class="notification">
         <button (click)="deleteNotification(notification.index)"><i class="fa-solid fa-xmark"></i></button>
-        <div class="title">{{notification.name}}</div>
-        <div class="description">@for (line of notification.description; track $index) {
-            <p>{{line}}</p>    
-        }</div>
+        @if (notification.name === "Fullscreen") {
+            <app-fullscreen></app-fullscreen>
+        }
+        @else {
+            <div class="title">{{notification.name}}</div>
+            <div class="description">@for (line of notification.description; track $index) {
+                <p>{{line}}</p>    
+            }</div>
+        }
     </div>
 }

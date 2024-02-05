@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Notification } from '../../../../interfaces/notification';
 import { NotificationService } from '../../../../services/data/notification.service';
+import { FullscreenComponent } from '../../settings/fullscreen/fullscreen.component';
 
 @Component({
   selector: 'app-notification',
   standalone: true,
-  imports: [],
+  imports: [FullscreenComponent],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.scss'
 })

@@ -13,5 +13,7 @@
     "standard image": "Image standard",
     "upload": "Télécharger",
     "language settings": "Paramètres de langue",
-    "error invalid input for background image": "Veuillez sélectionner un fichier image valide (jpeg, png, jpg)."
+    "error invalid input for background image": "Veuillez sélectionner un fichier image valide (jpeg, png, jpg).",
+    "screen settings": "Paramètres d'écran",
+    "toggle fullscreen": "Basculer Plein Écran"
 }

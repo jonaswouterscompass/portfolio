@@ -11,7 +11,9 @@
     "url": "URL",
     "file": "File",
     "standard image": "Standard image",
-    "upload": "upload",
-    "language settings": "language settings",
-    "error invalid input for background image": "Please select a valid image file (jpeg, png, jpg)."
+    "upload": "Upload",
+    "language settings": "Language settings",
+    "error invalid input for background image": "Please select a valid image file (jpeg, png, jpg).",
+    "screen settings": "Screen settings",
+    "toggle fullscreen": "Toggle fullscreen"
 }

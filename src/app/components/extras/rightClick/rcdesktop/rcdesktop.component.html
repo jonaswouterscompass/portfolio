@@ -3,5 +3,5 @@
     'top': true ? clickService.rCPosition.top + 'px': 0
     }"
     *transloco="let t">
-    <div class="item">{{ t("Open settings") }}</div>
+    <div class="item" (click)="clickService.lCSettingsIsOpen = true">{{ t("Open settings") }}</div>
 </div>

@@ -13,5 +13,7 @@
     "standard image": "Standaard afbeelding",
     "upload": "Uploaden",
     "language settings": "Taalinstellingen",
-    "error invalid input for background image": "Selecteer alstublieft een geldig afbeeldingsbestand (jpeg, png, jpg)."
+    "error invalid input for background image": "Selecteer alstublieft een geldig afbeeldingsbestand (jpeg, png, jpg).",
+    "screen settings": "Scherminstellingen",
+    "toggle fullscreen": "Wissel volledig scherm"
 }
