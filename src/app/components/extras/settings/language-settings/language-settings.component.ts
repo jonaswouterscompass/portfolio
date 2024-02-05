@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LanguageService } from '../../../../services/settings/language.service';
+import { LanguageService } from '../../../../services/settings/language/language.service';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@ngneat/transloco';
 

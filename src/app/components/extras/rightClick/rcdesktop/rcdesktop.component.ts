@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RCDesktopService } from '../../../../services/settings/rightClick/rcdesktop.service';
 import { CommonModule } from '@angular/common';
-import { RightBottomService } from '../../../../services/settings/right-bottom.service';
 import { TranslocoModule } from '@ngneat/transloco';
+import { RcIsOpenService } from '../../../../services/settings/rightClick/rc-is-open.service';
+import { LcIsOpenService } from '../../../../services/settings/leftClick/lc-is-open.service';
 
 @Component({
   selector: 'app-rcdesktop',
@@ -14,5 +14,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 export class RCDesktopComponent {
   @ViewChild("element", {static: true}) element: ElementRef | undefined;
 
-  constructor(public rcdesktop: RCDesktopService, public rightBottom: RightBottomService) { }
+  constructor(
+    public rcIsOpen: RcIsOpenService,
+    public lcIsOpen: LcIsOpenService) { }
 }

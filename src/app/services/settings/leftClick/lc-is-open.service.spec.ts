@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HomeSettingsService } from './home-settings.service';
+import { LcIsOpenService } from './lc-is-open.service';
 
-describe('HomeSettingsService', () => {
-  let service: HomeSettingsService;
+describe('LcIsOpenService', () => {
+  let service: LcIsOpenService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HomeSettingsService);
+    service = TestBed.inject(LcIsOpenService);
   });
 
   it('should be created', () => {

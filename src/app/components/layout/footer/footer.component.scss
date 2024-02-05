@@ -23,17 +23,19 @@
         gap: 3px;
         height: 100%;
         .openPage{
-            height: 100%;
+            height: calc(100% - 2px);
             width: 40px;
+            border-bottom: 2px solid lightblue;
+            background-color: rgba(120, 120, 255, 0.3);
             &.minimized{
-                background-color: rgba(120, 120, 255, 0.3);
+                background-color: transparent;
             }
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             >i {
-                font-size: 30px;
+                font-size: 20px;
             }
             .name{
                 position: absolute;

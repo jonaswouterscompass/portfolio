@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BackgroundSettingsComponent } from './background-settings/background-settings.component';
-import { RightBottomService } from '../../../services/settings/right-bottom.service';
 import { LanguageSettingsComponent } from './language-settings/language-settings.component';
+import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,9 +11,7 @@ import { LanguageSettingsComponent } from './language-settings/language-settings
   styleUrl: './settings.component.scss'
 })
 export class SettingsComponent {
-  rightBottomSettings: RightBottomService;
 
-  constructor(rightBottomSettings: RightBottomService) {
-    this.rightBottomSettings = rightBottomSettings;
+  constructor(public lcIsopen: LcIsOpenService) {
   }
 }

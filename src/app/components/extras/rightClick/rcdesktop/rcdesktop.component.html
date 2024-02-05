@@ -1,7 +1,7 @@
 <div class="rcdesktop" #element [ngStyle]="{
-    'left': true ? rcdesktop.position.left + 'px': 0,
-    'top': true ? rcdesktop.position.top + 'px': 0
+    'left': true ? rcIsOpen.position.left + 'px': 0,
+    'top': true ? rcIsOpen.position.top + 'px': 0
     }"
     *transloco="let t">
-    <div class="item" (click)="rightBottom.setSettingsOpen(true)">{{ t("Open settings") }}</div>
+    <div class="item">{{ t("Open settings") }}</div>
 </div>

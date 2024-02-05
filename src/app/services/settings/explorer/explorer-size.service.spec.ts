@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RCDesktopService } from './rcdesktop.service';
+import { ExplorerSizeService } from './explorer-size.service';
 
-describe('RCDesktopService', () => {
-  let service: RCDesktopService;
+describe('ExplorerSizeService', () => {
+  let service: ExplorerSizeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RCDesktopService);
+    service = TestBed.inject(ExplorerSizeService);
   });
 
   it('should be created', () => {

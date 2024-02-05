@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BackgroundService } from '../../../../services/settings/background.service';
+import { BackgroundService } from '../../../../services/settings/background/background.service';
 import { FormsModule } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 

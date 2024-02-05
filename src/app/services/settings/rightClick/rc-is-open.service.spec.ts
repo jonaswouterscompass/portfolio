@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { RCFooterService } from './rcfooter.service';
+import { RcIsOpenService } from './rc-is-open.service';
 
-describe('RCFooterService', () => {
-  let service: RCFooterService;
+describe('RcIsOpenService', () => {
+  let service: RcIsOpenService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RCFooterService);
+    service = TestBed.inject(RcIsOpenService);
   });
 
   it('should be created', () => {

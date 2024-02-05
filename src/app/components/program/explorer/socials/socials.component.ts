@@ -4,22 +4,20 @@ import { Program } from '../../../../interfaces/program';
 import { IconComponent } from '../../icon/icon.component';
 import { ProgramService } from '../../../../services/data/program.service';
 import { CommonModule } from '@angular/common';
-import { SocialsSettingsService } from '../../../../services/settings/explorer/socials-settings.service';
+import { ExplorerSizeService } from '../../../../services/settings/explorer/explorer-size.service';
 
 @Component({
   selector: 'app-socials',
   standalone: true,
-  imports: [CommonModule, ExplorerComponent, IconComponent],
+  imports: [CommonModule, IconComponent, ExplorerComponent],
   templateUrl: './socials.component.html',
   styleUrl: './socials.component.scss'
 })
 export class SocialsComponent {
   @Input() program: Program | undefined;
-  programService: ProgramService;
-  socialsSettings: SocialsSettingsService
+  
 
-  constructor(programService: ProgramService, socialsSettings: SocialsSettingsService) {
-    this.programService = programService;
-    this.socialsSettings = socialsSettings;
-  }
+  constructor(
+    public programService: ProgramService,
+    public explorerSettings: ExplorerSizeService) {}
 }

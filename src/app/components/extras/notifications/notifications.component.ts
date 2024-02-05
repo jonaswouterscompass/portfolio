@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NotificationService } from '../../../services/data/notification.service';
 import { NotificationComponent } from './notification/notification.component';
-import { RightBottomService } from '../../../services/settings/right-bottom.service';
+import { LcIsOpenService } from '../../../services/settings/leftClick/lc-is-open.service';
 
 @Component({
   selector: 'app-notifications',
@@ -11,12 +11,7 @@ import { RightBottomService } from '../../../services/settings/right-bottom.serv
   styleUrl: './notifications.component.scss'
 })
 export class NotificationsComponent {
-  notificationService: NotificationService;
-  rightBottomSettings: RightBottomService;
-
-  constructor(notificationService: NotificationService, rightBottomSettings: RightBottomService) {
-    this.notificationService = notificationService;
-    this.rightBottomSettings = rightBottomSettings;
+  constructor(public notificationService: NotificationService, public lcIsOpen: LcIsOpenService) {
   }
 
 }

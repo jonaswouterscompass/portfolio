@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RCFooterService } from '../../../../services/settings/rightClick/rcfooter.service';
+import { RcIsOpenService } from '../../../../services/settings/rightClick/rc-is-open.service';
 
 @Component({
   selector: 'app-rcfooter',
@@ -11,9 +11,7 @@ import { RCFooterService } from '../../../../services/settings/rightClick/rcfoot
 })
 export class RCFooterComponent {
   @ViewChild("element", {static: true}) element: ElementRef | undefined;
-  rcfooter: RCFooterService;
 
-  constructor(rcfooter: RCFooterService) {
-    this.rcfooter = rcfooter;
+  constructor(public rcIsOpen: RcIsOpenService) {
   }
 }
